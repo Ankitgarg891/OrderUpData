@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "725256366203",
+    "firebase_url": "https://order-up-6c442.firebaseio.com",
+    "project_id": "order-up-6c442",
+    "storage_bucket": "order-up-6c442.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:725256366203:android:603b9c4d05bd869b",
+        "android_client_info": {
+          "package_name": "com.example.food.orderup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "725256366203-722fgg61m91l4bof93b5indlr2qbhi2g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.food.orderup",
+            "certificate_hash": "2069717335aef327d5a9a2dfd758b9e3f712b883"
+          }
+        },
+        {
+          "client_id": "725256366203-lgcvicnm3kobt84sjcnt13mrau9epk7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF9KER4m0VauBQvT2VEUah6PnbR3dG_-g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725256366203-lgcvicnm3kobt84sjcnt13mrau9epk7t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

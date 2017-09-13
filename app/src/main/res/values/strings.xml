@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Order Up</string>
+    <string name="auth_failed"> Error! Plz try again!</string>
+</resources>
