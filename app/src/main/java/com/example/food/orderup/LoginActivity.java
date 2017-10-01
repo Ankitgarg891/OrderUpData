@@ -24,9 +24,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private static final String TAG ="LoginActivity" ;
-    TextView sign_up,status;
-    EditText email,password;
+    private static final String TAG = "LoginActivity";
+    TextView sign_up, status;
+    EditText email, password;
     Button login;
 
     FirebaseDatabase database;
@@ -43,32 +43,19 @@ public class LoginActivity extends AppCompatActivity {
 
         //All downcasting here
 
-        sign_up=(TextView)findViewById(R.id.sign_up);
+        sign_up = (TextView) findViewById(R.id.sign_up);
 
-        email=(EditText)findViewById(R.id.email);
-        password=(EditText)findViewById(R.id.password);
-        status=(TextView)findViewById(R.id.status);
-        login=(Button)findViewById(R.id.login_button);
+        email = (EditText) findViewById(R.id.email);
+        password = (EditText) findViewById(R.id.password);
+        status = (TextView) findViewById(R.id.status);
+        login = (Button) findViewById(R.id.login_button);
 
 
         //All attachments here
 
-        database=FirebaseDatabase.getInstance();
-        mAuth=FirebaseAuth.getInstance();
-        myRef=database.getReference("User-details");
-
-
-
-
-
-
-
-
-
-
-
-
-
+        database = FirebaseDatabase.getInstance();
+        mAuth = FirebaseAuth.getInstance();
+        myRef = database.getReference("User-details");
 
 
         //All Listeners here
@@ -90,17 +77,13 @@ public class LoginActivity extends AppCompatActivity {
         };
 
 
-
-
-
-
-        login.setOnClickListener( new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(LoginActivity.this, "Please wait", Toast.LENGTH_SHORT).show();
                 status.setText("Checking details...");
 
-                mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()  )
+                mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -116,28 +99,21 @@ public class LoginActivity extends AppCompatActivity {
                                     status.setText("Invalid Email id or Password");
 
 
-                                }
-                                else
-                                {
-                                    FirebaseUser user=mAuth.getCurrentUser();
-                                    String id= user.getUid();
-
-
+                                } else {
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    String id = user.getUid();
 
 
                                     Toast.makeText(LoginActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
 
 
-
-                                    Intent intent=new Intent(LoginActivity.this,WelcomeActivity.class);
-                                    intent.putExtra("id",id);
+                                    Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+                                    intent.putExtra("id", id);
 
                                     startActivity(intent);
 
 
-
                                 }
-
 
 
                                 // ...
@@ -145,21 +121,17 @@ public class LoginActivity extends AppCompatActivity {
                         });
 
 
-
-
-}
+            }
         });
-
 
 
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
+                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
             }
         });
     }
-
 
 
     @Override
@@ -175,13 +147,6 @@ public class LoginActivity extends AppCompatActivity {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
-
-
-
-
-
-
-
 
 
 }

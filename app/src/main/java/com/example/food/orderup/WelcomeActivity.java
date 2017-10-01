@@ -15,10 +15,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    private static final String TAG ="Welcome_activity" ;
+    private static final String TAG = "Welcome_activity";
     TextView display;
     FirebaseDatabase database;
-    int ctr=0;
+    int ctr = 0;
     DatabaseReference myRef;
     String flag;
     String id;
@@ -30,28 +30,18 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
 
-        display=(TextView)findViewById(R.id.display);
+        display = (TextView) findViewById(R.id.display);
 
 
-        Intent intent=getIntent();
-        flag=intent.getStringExtra("flag");
+        Intent intent = getIntent();
+        flag = intent.getStringExtra("flag");
 
-        id=intent.getStringExtra("id");
+        id = intent.getStringExtra("id");
+//intent to menu activity
+//        startActivity(new Intent(WelcomeActivity.this,MenuActivity.class));
 
-
-
-
-
-
-
-
-        database=FirebaseDatabase.getInstance();
-        myRef=database.getReference("User-details").child(id);
-
-
-
-
-
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("User-details").child(id);
 
 
         // Read from the database
@@ -61,29 +51,20 @@ public class WelcomeActivity extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
 
-                String display_name="";
+                String display_name = "";
 
-                for(DataSnapshot d:dataSnapshot.getChildren())
+                for (DataSnapshot d : dataSnapshot.getChildren())
 
                 {
 
-                    display.setText("Welcome Mr. "+dataSnapshot.child("Name").getValue().toString());
-                 //   Toast.makeText(WelcomeActivity.this,dataSnapshot.child("Name").toString(), Toast.LENGTH_LONG).show();
+                    display.setText("Welcome Mr. " + dataSnapshot.child("Name").getValue().toString());
+                    //   Toast.makeText(WelcomeActivity.this,dataSnapshot.child("Name").toString(), Toast.LENGTH_LONG).show();
 
-                    Log.d("WelcomeActivity","Name = " + d.child("Name"));
-                    Log.d("WelcomeActivity","Phone No = " + d.child("Phone no"));
-
-
-
-
-
-
+                    Log.d("WelcomeActivity", "Name = " + d.child("Name"));
+                    Log.d("WelcomeActivity", "Phone No = " + d.child("Phone no"));
 
 
                 }
-
-
-
 
 
                 Log.d(TAG, "Value is: " + display_name);
@@ -95,28 +76,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
