@@ -126,8 +126,7 @@
                         android:imeOptions="actionNext"
                         android:paddingBottom="20dp"
 
-
-
+                        android:inputType="textPersonName"
 
 
 
@@ -376,29 +375,6 @@
 
 
         </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     </LinearLayout>
