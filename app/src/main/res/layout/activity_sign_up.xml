@@ -4,17 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.food.orderup.SignUpActivity"
-
-
-
     android:orientation="vertical"
 
+
+    tools:context="com.example.food.orderup.SignUpActivity"
+
     >
-
-
-
-
 
 
     <LinearLayout
@@ -22,13 +17,11 @@
         android:layout_height="match_parent"
 
 
-
         android:background="@drawable/pizza_half"
 
 
-
-        android:weightSum="12"
         android:orientation="vertical"
+        android:weightSum="12"
 
         >
 
@@ -36,20 +29,20 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:background="@color/primary"
-            android:text="Create a new account"
-            android:textColor="@android:color/white"
-            android:textSize="24dp"
             android:alpha=".9"
-
-
-            android:gravity="center|start"
+            android:background="@color/primary"
             android:drawableLeft="@drawable/tray_76"
             android:drawablePadding="20dp"
             android:drawableTint="@android:color/white"
+
+
+            android:gravity="center|start"
+            android:paddingBottom="10dp"
             android:paddingLeft="8dp"
             android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+            android:text="Create a new account"
+            android:textColor="@android:color/white"
+            android:textSize="24dp"
 
             />
 
@@ -57,94 +50,82 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="10"
-            android:background="@drawable/button_cornor_white"
-            android:layout_marginTop="14dp"
             android:layout_marginBottom="14dp"
             android:layout_marginLeft="26dp"
             android:layout_marginRight="26dp"
-
-
+            android:layout_marginTop="14dp"
+            android:layout_weight="10"
             android:alpha=".95"
+
+
+            android:background="@drawable/button_cornor_white"
+            android:orientation="vertical"
             android:paddingLeft="16dp"
+
+
             android:paddingRight="16dp"
 
-
             android:weightSum="18"
-
-            android:orientation="vertical"
-
-
-
 
 
             >
 
             <TextView
+                android:id="@+id/error_details"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+
+
                 android:layout_weight="2.5"
-
-
-                android:text="Fill your details below "
-                android:padding="5dp"
                 android:gravity="center"
+                android:padding="5dp"
+                android:text="Fill your details below "
                 android:textColor="@android:color/holo_blue_dark"
-                android:textSize="20dp"
-                android:id="@+id/error_details"/>
-
+                android:textSize="20dp" />
 
 
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="12.3"
-                android:scrollbarFadeDuration="10000"
                 android:layout_marginBottom="5dp"
-                >
+                android:layout_weight="12.3"
+                android:scrollbarFadeDuration="10000">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:weightSum="17.5"
-                    android:orientation="vertical">
-
+                    android:orientation="vertical"
+                    android:weightSum="17.5">
 
 
                     <EditText
                         android:id="@+id/new_user"
-                        android:backgroundTint="@color/primary_dark"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="0dp"
-                        android:layout_weight="3.5"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginLeft="7dp"
 
                         android:layout_marginRight="7dp"
-                        android:layout_marginLeft="7dp"
                         android:layout_marginTop="12dp"
-                        android:layout_marginBottom="12dp"
-                        android:imeOptions="actionNext"
-                        android:paddingBottom="20dp"
+                        android:layout_weight="3.5"
+                        android:backgroundTint="@color/primary_dark"
+                        android:drawableLeft="@drawable/user_icon"
+                        android:drawablePadding="20dp"
 
-                        android:inputType="textPersonName"
-
-
+                        android:drawableTint="@android:color/black"
 
 
                         android:hint="Username"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:paddingBottom="20dp"
+
+
+                        android:paddingLeft="10dp"
                         android:textColor="@android:color/black"
                         android:textColorHint="@color/grey"
                         android:textSize="18sp"
-
-
-
-                        android:drawableLeft="@drawable/user_icon"
-                        android:drawableTint="@android:color/black"
-                        android:drawablePadding="20dp"
-                        android:paddingLeft="10dp"
-
-
-
 
 
                         />
@@ -152,226 +133,183 @@
 
                     <EditText
                         android:id="@+id/new_phone"
-                        android:backgroundTint="@color/primary_dark"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="0dp"
-                        android:layout_weight="3.5"
-
-                        android:imeOptions="actionNext"
-                        android:paddingBottom="20dp"
-
-
-
-
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginLeft="7dp"
 
                         android:layout_marginRight="7dp"
-                        android:layout_marginLeft="7dp"
                         android:layout_marginTop="12dp"
-                        android:layout_marginBottom="12dp"
 
-                        android:inputType="phone"
 
+                        android:layout_weight="3.5"
+                        android:backgroundTint="@color/primary_dark"
+                        android:drawableLeft="@drawable/phone"
+                        android:drawablePadding="20dp"
+
+                        android:drawableTint="@android:color/black"
 
 
                         android:hint="Phone Number"
-                        android:textColor="@android:color/black"
-                        android:textColorHint="@color/grey"
-                        android:textSize="18sp"
-
-
-                        android:drawableLeft="@drawable/phone"
-                        android:drawableTint="@android:color/black"
-                        android:drawablePadding="20dp"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:paddingBottom="20dp"
 
 
                         android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/grey"
+
+
+                        android:textSize="18sp"
 
 
                         />
 
                     <EditText
                         android:id="@+id/new_email"
-                        android:backgroundTint="@color/primary_dark"
-
                         android:layout_width="match_parent"
+
                         android:layout_height="0dp"
-                        android:layout_weight="3.5"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginLeft="7dp"
 
                         android:layout_marginRight="7dp"
-                        android:layout_marginLeft="7dp"
                         android:layout_marginTop="12dp"
-                        android:layout_marginBottom="12dp"
+                        android:layout_weight="3.5"
+                        android:backgroundTint="@color/primary_dark"
 
-                        android:inputType="textWebEmailAddress"
+                        android:drawableLeft="@drawable/mail"
 
-                        android:imeOptions="actionNext"
-                        android:paddingBottom="20dp"
-
-
-
+                        android:drawablePadding="20dp"
+                        android:drawableTint="@android:color/black"
 
 
                         android:hint="Email"
-                        android:textColor="@android:color/black"
-                        android:textColorHint="@color/grey"
-                        android:textSize="18sp"
-
-
-                        android:drawableLeft="@drawable/mail"
-                        android:drawableTint="@android:color/black"
-                        android:drawablePadding="20dp"
+                        android:imeOptions="actionNext"
+                        android:inputType="textWebEmailAddress"
+                        android:paddingBottom="20dp"
 
 
                         android:paddingLeft="10dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@color/grey"
+
+
+                        android:textSize="18sp"
 
 
                         />
 
 
-
-
                     <EditText
-
-
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="3.5"
-
-                        android:layout_marginRight="7dp"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginBottom="12dp"
-
-                        android:inputType="textPassword"
-
-                        android:backgroundTint="@color/primary_dark"
-
-                        android:imeOptions="actionNext"
-                        android:paddingBottom="20dp"
-
-
-
-
-
-                        android:hint="Password"
-
-                        android:textColorHint="@color/grey"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp"
-
-
-                        android:drawableTint="@android:color/black"
-                        android:drawablePadding="20dp"
-
-                        android:drawableLeft="@drawable/lock"
 
 
                         android:id="@+id/new_password"
-                        android:paddingLeft="10dp"
-
-
-
-
-                        />
-
-
-
-                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="3.5"
 
-
-                        android:layout_marginRight="7dp"
-                        android:layout_marginLeft="7dp"
-                        android:layout_marginTop="12dp"
                         android:layout_marginBottom="12dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_marginTop="12dp"
 
-                        android:inputType="textPassword"
-
-                        android:imeOptions="actionDone"
-
-
+                        android:layout_weight="3.5"
 
                         android:backgroundTint="@color/primary_dark"
 
-                        android:paddingBottom="20dp"
-
-
-                        android:hint=" Re-type Password"
-                        android:textColorHint="@color/grey"
-                        android:textColor="@android:color/black"
-                        android:textSize="18sp"
+                        android:drawableLeft="@drawable/lock"
+                        android:drawablePadding="20dp"
 
 
                         android:drawableTint="@android:color/black"
-                        android:drawablePadding="20dp"
 
-                        android:drawableLeft="@drawable/lock"
+                        android:hint="Password"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
 
 
-                        android:id="@+id/new_re_password"
-
+                        android:paddingBottom="20dp"
                         android:paddingLeft="10dp"
 
+                        android:textColor="@android:color/black"
 
+
+                        android:textColorHint="@color/grey"
+                        android:textSize="18sp"
 
 
                         />
 
 
+                    <EditText
+                        android:id="@+id/new_re_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+
+
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginRight="7dp"
+                        android:layout_marginTop="12dp"
+
+                        android:layout_weight="3.5"
+
+                        android:backgroundTint="@color/primary_dark"
+
+
+                        android:drawableLeft="@drawable/lock"
+
+                        android:drawablePadding="20dp"
+
+
+                        android:drawableTint="@android:color/black"
+                        android:hint=" Re-type Password"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+
+
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="10dp"
+
+                        android:textColor="@android:color/black"
+
+
+                        android:textColorHint="@color/grey"
+
+                        android:textSize="18sp"
+
+
+                        />
 
 
                 </LinearLayout>
             </ScrollView>
 
 
-
-
-
-
-
-
-
-
             <Button
+                android:id="@+id/create_account"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+
+                android:layout_margin="20dp"
                 android:layout_weight="3.1"
 
-                android:text="Create Account"
-                android:textAllCaps="false"
 
-
-
-
-
-
-                android:gravity="center"
-                android:textSize="24dp"
-
-                android:textColor="@android:color/white"
                 android:background="@drawable/button_cornor_white"
                 android:backgroundTint="@color/primary"
-                android:layout_margin="20dp"
+
+                android:gravity="center"
+                android:text="Create Account"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
 
 
-
-
-
-
-
-
-                android:id="@+id/create_account"
-
+                android:textSize="24dp"
 
 
                 />
-
-
-
-
 
 
         </LinearLayout>
