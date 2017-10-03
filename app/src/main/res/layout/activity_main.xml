@@ -4,18 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.food.orderup.MainActivity"
-
     android:orientation="vertical"
-  >
+
+    tools:context="com.example.food.orderup.MainActivity">
 
 
-
-
-
-  <Button
-      android:layout_width="match_parent"
-      android:layout_height="100dp"
-      android:text="login in"
-      android:id="@+id/b1"/>
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="login in" />
 </LinearLayout>

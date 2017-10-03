@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,29 +24,28 @@ public class WelcomeActivity extends AppCompatActivity {
     FirebaseDatabase database;
     int ctr = 0;
     DatabaseReference myRef;
-    String flag;
-    String id;
-
+    String flag,id,name[]={"r1","r2","r3","r4"},address[]={"a1","a2","a3","a4"};
+    Integer images[]={R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        ListView outlet_listview = (ListView)findViewById(R.id.outletListView);
+
+        CustomAdapter customAdapter = new CustomAdapter();
+        outlet_listview.setAdapter(customAdapter);
 
         display = (TextView) findViewById(R.id.display);
 
 
         Intent intent = getIntent();
         flag = intent.getStringExtra("flag");
-
         id = intent.getStringExtra("id");
-//intent to menu activity
-//        startActivity(new Intent(WelcomeActivity.this,MenuActivity.class));
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("User-details").child(id);
-
 
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
@@ -50,23 +53,15 @@ public class WelcomeActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-
                 String display_name = "";
 
                 for (DataSnapshot d : dataSnapshot.getChildren())
-
                 {
-
                     display.setText("Welcome Mr. " + dataSnapshot.child("Name").getValue().toString());
                     //   Toast.makeText(WelcomeActivity.this,dataSnapshot.child("Name").toString(), Toast.LENGTH_LONG).show();
-
                     Log.d("WelcomeActivity", "Name = " + d.child("Name"));
                     Log.d("WelcomeActivity", "Phone No = " + d.child("Phone no"));
-
-
                 }
-
-
                 Log.d(TAG, "Value is: " + display_name);
             }
 
@@ -76,7 +71,40 @@ public class WelcomeActivity extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
-
-
     }
+
+    class CustomAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return name.length;
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            view = getLayoutInflater().inflate(R.layout.outlet_custom_listview,null);
+
+            ImageView outlet_image = (ImageView)view.findViewById(R.id.outletImageView);
+            TextView outlet_name = (TextView)view.findViewById(R.id.outlet_nameTextView);
+            TextView outlet_address = (TextView)view.findViewById(R.id.outlet_addressTextView);
+
+
+            outlet_image.setImageResource(images[i]);
+            outlet_name.setText(name[i]);
+            outlet_address.setText(address[i]);
+
+            return view;
+        }
+    }
+
 }

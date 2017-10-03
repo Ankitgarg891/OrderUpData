@@ -1,109 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <android.support.design.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.food.orderup.MenuActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/app_bar_height"
         android:fitsSystemWindows="true"
-        tools:context="com.example.food.orderup.MenuActivity">
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/app_bar"
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/app_bar_height"
+            android:layout_height="250dp"
             android:fitsSystemWindows="true"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleGravity="center_horizontal|bottom"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="Menu Activity">
 
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/toolbar_layout"
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                app:title="Menu Activity"
-                app:expandedTitleGravity="center_horizontal|bottom"
+                android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
-                app:contentScrim="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                android:scaleType="centerCrop"
+                android:src="@drawable/pizza_half"
+                app:layout_collapseMode="parallax" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fitsSystemWindows="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/pizza_half"
-                    app:layout_collapseMode="parallax" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/scrim_gradient"
+                android:fitsSystemWindows="true" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/scrim_gradient"
-                    android:fitsSystemWindows="true" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="60dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_marginBottom="60dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Good Afternoon, Ankit"
+                    android:textColor="@android:color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Good Afternoon, Ankit"
-                        android:textColor="@android:color/white"
-                        android:textSize="25sp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="It's time for lunch."
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp"/>
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="It's time for lunch."
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
 
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    app:layout_collapseMode="pin"
-                    android:elevation="7dp"
-                    app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-            </android.support.design.widget.CollapsingToolbarLayout>
-
-            <android.support.design.widget.TabLayout
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:tabIndicatorColor="@android:color/white"
-                app:tabIndicatorHeight="5dp"
-                app:tabSelectedTextColor="@android:color/white"
-                app:tabTextColor="@color/white_trans"
-                app:tabMode="scrollable">
+                android:elevation="7dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Appetizer" />
+        </android.support.design.widget.CollapsingToolbarLayout>
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Dessert" />
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:tabIndicatorColor="@android:color/white"
+            app:tabIndicatorHeight="5dp"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@android:color/white"
+            app:tabTextColor="@color/white_trans">
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Main Course" />
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Appetizer" />
 
-                <android.support.design.widget.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Beverages" />
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dessert" />
 
-            </android.support.design.widget.TabLayout>
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Main Course" />
 
-        </android.support.design.widget.AppBarLayout>
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beverages" />
 
-        <include layout="@layout/content_menu" />
+        </android.support.design.widget.TabLayout>
 
-    </android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_menu" />
+
+</android.support.design.widget.CoordinatorLayout>

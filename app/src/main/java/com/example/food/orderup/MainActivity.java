@@ -17,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
 
         // dipanshu
 
-        login=(Button)findViewById(R.id.b1);
+        login = (Button) findViewById(R.id.b1);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
 
                 startActivity(intent);
             }

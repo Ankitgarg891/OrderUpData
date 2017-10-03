@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import static android.R.attr.name;
 import static android.R.id.message;
 
-public class SignUpActivity extends AppCompatActivity implements  View.OnFocusChangeListener {
+public class SignUpActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 
     private static final String TAG = "SignUpActivity";
     EditText new_username, new_phone, new_email, new_password, new_re_password;
@@ -56,7 +56,7 @@ public class SignUpActivity extends AppCompatActivity implements  View.OnFocusCh
 
         mAuth = FirebaseAuth.getInstance(); //for authentication
 
-        myRef=database.getReference("User-details");
+        myRef = database.getReference("User-details");
 
 
         new_username.setOnFocusChangeListener(this);
@@ -64,12 +64,6 @@ public class SignUpActivity extends AppCompatActivity implements  View.OnFocusCh
         new_email.setOnFocusChangeListener(this);
         new_password.setOnFocusChangeListener(this);
         new_re_password.setOnFocusChangeListener(this);
-
-
-
-
-
-
 
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -92,7 +86,6 @@ public class SignUpActivity extends AppCompatActivity implements  View.OnFocusCh
         };
 
 
-
         create_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,16 +95,14 @@ public class SignUpActivity extends AppCompatActivity implements  View.OnFocusCh
                     error_details.setText("Creating account...");
                     Toast.makeText(SignUpActivity.this, "Please Wait", Toast.LENGTH_LONG).show();
 
-                    String email= new_email.getText().toString();
-                    String password=new_password.getText().toString();
+                    String email = new_email.getText().toString();
+                    String password = new_password.getText().toString();
 
 
-                    final FirebaseUser user=mAuth.getCurrentUser();
+                    final FirebaseUser user = mAuth.getCurrentUser();
 
 
-
-
-                    mAuth.createUserWithEmailAndPassword(email,password)
+                    mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -119,12 +110,8 @@ public class SignUpActivity extends AppCompatActivity implements  View.OnFocusCh
 
 
                                     if (!task.isSuccessful()) {
-                                        Toast.makeText(SignUpActivity.this, R.string.auth_failed,Toast.LENGTH_SHORT).show();
-                                    }
-
-
-                                    else
-                                    {
+                                        Toast.makeText(SignUpActivity.this, R.string.auth_failed, Toast.LENGTH_SHORT).show();
+                                    } else {
                                         final String id;
                                         if (user != null) {
                                             id = user.getUid();
@@ -134,25 +121,13 @@ public class SignUpActivity extends AppCompatActivity implements  View.OnFocusCh
 
                                             Toast.makeText(SignUpActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
 
-                                            Intent intent=new Intent(SignUpActivity.this,WelcomeActivity.class);
-                                            intent.putExtra("id",id);
+                                            Intent intent = new Intent(SignUpActivity.this, WelcomeActivity.class);
+                                            intent.putExtra("id", id);
 
                                             startActivity(intent);
 
 
-
                                         }
-
-
-
-
-
-
-
-
-
-
-
 
 
                                     }
@@ -166,24 +141,7 @@ public class SignUpActivity extends AppCompatActivity implements  View.OnFocusCh
         });
 
 
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
 
 
     private boolean validate() {
@@ -218,8 +176,7 @@ public class SignUpActivity extends AppCompatActivity implements  View.OnFocusCh
 
             error_details.setText("Please enter valid 10 digit phone number");
             return false;
-        }
-        else if (!new_email.getText().toString().matches(emailPattern)) {
+        } else if (!new_email.getText().toString().matches(emailPattern)) {
 
             Toast.makeText(getApplicationContext(), "Please enter valid email address", Toast.LENGTH_SHORT).show();
 
@@ -227,8 +184,7 @@ public class SignUpActivity extends AppCompatActivity implements  View.OnFocusCh
             return false;
 
 
-        }
-        else if (new_password.length() < 6) {
+        } else if (new_password.length() < 6) {
 
             Toast.makeText(getApplicationContext(), "Please enter minimum 6 character password", Toast.LENGTH_SHORT).show();
 
@@ -246,12 +202,6 @@ public class SignUpActivity extends AppCompatActivity implements  View.OnFocusCh
 
 
     }
-
-
-
-
-
-
 
 
     @Override
@@ -282,11 +232,6 @@ public class SignUpActivity extends AppCompatActivity implements  View.OnFocusCh
 
         }
     }
-
-
-
-
-
 
 
     @Override
