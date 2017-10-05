@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -29,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText email, password;
     Button login;
 
+    Animation a1;
+
     FirebaseDatabase database;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -44,6 +48,8 @@ public class LoginActivity extends AppCompatActivity {
         //All downcasting here
 
         sign_up = (TextView) findViewById(R.id.sign_up);
+
+        a1 = AnimationUtils.loadAnimation(this, R.anim.fade_in);
 
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
@@ -82,43 +88,54 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(LoginActivity.this, "Please wait", Toast.LENGTH_SHORT).show();
                 status.setText("Checking details...");
+                status.startAnimation(a1);
+                if (email.getText().toString().equals("") || password.getText().toString().equals(""))
 
-                mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
-                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                if (!task.isSuccessful()) {
-                                    Log.w(TAG, "signInWithEmail:failed", task.getException());
-                                    Toast.makeText(LoginActivity.this, "Try again",
-                                            Toast.LENGTH_SHORT).show();
-                                    status.setText("Invalid Email id or Password");
+                {
+                    status.setText("Please enter required details..");
 
 
-                                } else {
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    String id = user.getUid();
+                } else {
 
 
-                                    Toast.makeText(LoginActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
+                    mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+
+                                    // If sign in fails, display a message to the user. If sign in succeeds
+                                    // the auth state listener will be notified and logic to handle the
+                                    // signed in user can be handled in the listener.
+                                    if (!task.isSuccessful()) {
+                                        Log.w(TAG, "signInWithEmail:failed", task.getException());
+                                        Toast.makeText(LoginActivity.this, "Try again",
+                                                Toast.LENGTH_SHORT).show();
+                                        status.setText("Invalid Email id or Password");
 
 
-                                    Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
-                                    intent.putExtra("id", id);
+                                    } else {
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        String id = user.getUid();
 
-                                    startActivity(intent);
+
+                                        Toast.makeText(LoginActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
 
 
+                                        Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
+                                        intent.putExtra("id", id);
+
+                                        startActivity(intent);
+
+
+                                    }
+
+
+                                    // ...
                                 }
+                            });
 
-
-                                // ...
-                            }
-                        });
+                }
 
 
             }

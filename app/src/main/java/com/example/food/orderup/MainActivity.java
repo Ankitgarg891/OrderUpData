@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button login;
+    Button foodieshere,chefhere;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,14 +17,25 @@ public class MainActivity extends AppCompatActivity {
 
         // dipanshu
 
-        login = (Button) findViewById(R.id.b1);
+        foodieshere=(Button)findViewById(R.id.b1);
 
-        login.setOnClickListener(new View.OnClickListener() {
+        foodieshere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
 
                 startActivity(intent);
+            }
+        });
+
+
+
+        chefhere=(Button)findViewById(R.id.b2);
+
+        chefhere.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
             }
         });
 
