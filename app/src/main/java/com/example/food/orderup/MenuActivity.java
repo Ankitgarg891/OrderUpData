@@ -5,9 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -18,6 +21,7 @@ public class MenuActivity extends AppCompatActivity {
     ViewPager viewPager;
     Toolbar toolbar;
     TabLayout tabLayout;
+    NestedScrollView scrollView;
     int icons[]={R.mipmap.apzicon,R.mipmap.dessicon,R.mipmap.mainicon,R.mipmap.bevicon};
     String name1[]={"Vegetarian Spring Rolls","Vegetable Fried Wonton","Crispy Chilli Potatoes","Chilli Paneer","Crispy Tangy Mushrooms"
     ,"Corn Pepper Salt"};
@@ -31,6 +35,7 @@ public class MenuActivity extends AppCompatActivity {
 
         viewPager=(ViewPager)findViewById(R.id.viewpager);
         tabLayout=(TabLayout)findViewById(R.id.tabmenu);
+        scrollView = (NestedScrollView) findViewById (R.id.nestedscrollview);
 
         tabLayout.setupWithViewPager(viewPager);
         //ATTACHING FRAGMENTS
@@ -42,9 +47,33 @@ public class MenuActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        scrollView.setFillViewport (true);
 
         menulist.setAdapter(new CustomAdapter(this,name1,images1,price1));
         // set for diff tabs
+
+
+      /*  menulist.setOnTouchListener(new ListView.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                int action = event.getAction();
+                switch (action) {
+                    case MotionEvent.ACTION_DOWN:
+                        // Disallow ScrollView to intercept touch events.
+                        v.getParent().requestDisallowInterceptTouchEvent(true);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                        // Allow ScrollView to intercept touch events.
+                        v.getParent().requestDisallowInterceptTouchEvent(false);
+                        break;
+                }
+
+                // Handle ListView touch events.
+                v.onTouchEvent(event);
+                return true;
+            }
+        });*/
 
     }
 
