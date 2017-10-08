@@ -24,15 +24,15 @@ public class WelcomeActivity extends AppCompatActivity {
     FirebaseDatabase database;
     int ctr = 0;
     DatabaseReference myRef;
-    String flag,id,name[]={"r1","r2","r3","r4"},address[]={"a1","a2","a3","a4"};
-    Integer images[]={R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher};
+    String flag, id, name[] = {"r1", "r2", "r3", "r4"}, address[] = {"a1", "a2", "a3", "a4"};
+    Integer images[] = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        ListView outlet_listview = (ListView)findViewById(R.id.outletListView);
+        ListView outlet_listview = (ListView) findViewById(R.id.outletListView);
 
         CustomAdapter customAdapter = new CustomAdapter();
         outlet_listview.setAdapter(customAdapter);
@@ -55,8 +55,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 // whenever data at this location is updated.
                 String display_name = "";
 
-                for (DataSnapshot d : dataSnapshot.getChildren())
-                {
+                for (DataSnapshot d : dataSnapshot.getChildren()) {
                     display.setText("Welcome Mr. " + dataSnapshot.child("Name").getValue().toString());
                     //   Toast.makeText(WelcomeActivity.this,dataSnapshot.child("Name").toString(), Toast.LENGTH_LONG).show();
                     Log.d("WelcomeActivity", "Name = " + d.child("Name"));
@@ -92,11 +91,11 @@ public class WelcomeActivity extends AppCompatActivity {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            view = getLayoutInflater().inflate(R.layout.outlet_custom_listview,null);
+            view = getLayoutInflater().inflate(R.layout.outlet_custom_listview, null);
 
-            ImageView outlet_image = (ImageView)view.findViewById(R.id.outletImageView);
-            TextView outlet_name = (TextView)view.findViewById(R.id.outlet_nameTextView);
-            TextView outlet_address = (TextView)view.findViewById(R.id.outlet_addressTextView);
+            ImageView outlet_image = (ImageView) view.findViewById(R.id.outletImageView);
+            TextView outlet_name = (TextView) view.findViewById(R.id.outlet_nameTextView);
+            TextView outlet_address = (TextView) view.findViewById(R.id.outlet_addressTextView);
 
 
             outlet_image.setImageResource(images[i]);

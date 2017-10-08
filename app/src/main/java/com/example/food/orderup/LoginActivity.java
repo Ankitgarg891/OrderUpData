@@ -28,8 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     EditText email, password;
     Button login;
 
-    Animation a1;
-
     FirebaseDatabase database;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -43,7 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         //All downcasting here
         sign_up = (TextView) findViewById(R.id.sign_up);
 
-        a1 = AnimationUtils.loadAnimation(this, R.anim.fade_in);
 
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
@@ -75,7 +72,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(LoginActivity.this, "Please wait", Toast.LENGTH_SHORT).show();
                 status.setText("Checking details...");
-                status.startAnimation(a1);
                 if (email.getText().toString().equals("") || password.getText().toString().equals("")) {
                     status.setText("Please enter required details..");
                 } else {

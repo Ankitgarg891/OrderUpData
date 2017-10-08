@@ -99,7 +99,6 @@
                         android:hint="Phone Number"
                         android:inputType="phone|textPhonetic"
                         android:textColor="@android:color/black"
-                        android:textColorHint="@color/grey"
                         android:textSize="20sp" />
 
                     <EditText
