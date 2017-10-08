@@ -84,8 +84,7 @@ public class LoginActivity extends AppCompatActivity {
                                     // signed in user can be handled in the listener.
                                     if (!task.isSuccessful()) {
                                         Log.w(TAG, "signInWithEmail:failed", task.getException());
-                                        Toast.makeText(LoginActivity.this, "Try again",
-                                                Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(LoginActivity.this, "Try again", Toast.LENGTH_SHORT).show();
                                         status.setText("Invalid Email id or Password");
                                     } else {
                                         FirebaseUser user = mAuth.getCurrentUser();

@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pizza_half"
+    android:background="@drawable/splash_image"
     android:orientation="vertical"
     tools:context="com.example.food.orderup.MainActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/scrim_gradient" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +34,7 @@
             android:gravity="center"
             android:text="Order up"
             android:textColor="@android:color/white"
-            android:textSize="35dp"
+            android:textSize="45sp"
             android:textStyle="bold" />
 
         <Button
@@ -66,4 +71,4 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>

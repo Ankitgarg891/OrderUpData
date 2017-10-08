@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/pizza_half"
     tools:context="com.example.food.orderup.SignUpActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/scrim_gradient" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/pizza_half"
         android:orientation="vertical"
         android:weightSum="12">
 
@@ -81,7 +85,7 @@
                         android:drawableLeft="@drawable/user_icon"
                         android:drawablePadding="10dp"
                         android:hint="Username"
-                        android:inputType="textPersonName"
+                        android:inputType="textCapWords|textAutoCorrect|textAutoComplete|textPersonName"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
 
@@ -98,6 +102,7 @@
                         android:drawablePadding="10dp"
                         android:hint="Phone Number"
                         android:inputType="phone|textPhonetic"
+                        android:maxLength="10"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
 
@@ -113,7 +118,7 @@
                         android:drawableLeft="@drawable/email_icon"
                         android:drawablePadding="20dp"
                         android:hint="Email"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textAutoComplete|textEmailAddress"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
 

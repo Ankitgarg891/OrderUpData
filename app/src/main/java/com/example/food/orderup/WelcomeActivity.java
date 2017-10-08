@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -22,13 +24,12 @@ public class WelcomeActivity extends AppCompatActivity {
     private static final String TAG = "Welcome_activity";
     TextView display;
     FirebaseDatabase database;
-    int ctr = 0;
     DatabaseReference myRef;
     String flag, id, name[] = {"r1", "r2", "r3", "r4"}, address[] = {"a1", "a2", "a3", "a4"};
     Integer images[] = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
@@ -37,6 +38,16 @@ public class WelcomeActivity extends AppCompatActivity {
         CustomAdapter customAdapter = new CustomAdapter();
         outlet_listview.setAdapter(customAdapter);
 
+        outlet_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        startActivity(new Intent(WelcomeActivity.this,MenuActivity.class));
+                        break;
+                }
+            }
+        });
         display = (TextView) findViewById(R.id.display);
 
 
@@ -56,7 +67,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 String display_name = "";
 
                 for (DataSnapshot d : dataSnapshot.getChildren()) {
-                    display.setText("Welcome Mr. " + dataSnapshot.child("Name").getValue().toString());
+                    display.setText("Welcome, " + dataSnapshot.child("Name").getValue().toString());
                     //   Toast.makeText(WelcomeActivity.this,dataSnapshot.child("Name").toString(), Toast.LENGTH_LONG).show();
                     Log.d("WelcomeActivity", "Name = " + d.child("Name"));
                     Log.d("WelcomeActivity", "Phone No = " + d.child("Phone no"));
@@ -97,7 +108,6 @@ public class WelcomeActivity extends AppCompatActivity {
             TextView outlet_name = (TextView) view.findViewById(R.id.outlet_nameTextView);
             TextView outlet_address = (TextView) view.findViewById(R.id.outlet_addressTextView);
 
-
             outlet_image.setImageResource(images[i]);
             outlet_name.setText(name[i]);
             outlet_address.setText(address[i]);
@@ -105,5 +115,4 @@ public class WelcomeActivity extends AppCompatActivity {
             return view;
         }
     }
-
 }
