@@ -12,28 +12,12 @@ import android.widget.TextView;
 public class
 SplashActivity extends AppCompatActivity {
 
-    TextView t1;
     Handler handler;
-    Animation animation;
-    Typeface tf;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
-        tf = Typeface.createFromAsset(getAssets(),"fonts/round.ttf");
-
-
-        animation= AnimationUtils.loadAnimation(this,R.anim.fade_in);
-
-        t1=(TextView)findViewById(R.id.orderup_text);
-        t1.startAnimation(animation);
-
-        t1.setTypeface(tf);
 
         handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -42,6 +26,6 @@ SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish();
             }
-        }, 4000);
+        }, 3000);
     }
 }
