@@ -92,7 +92,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnFocusCha
                 if (true == validate()) {
 
                     error_details.setTextColor(Color.parseColor("#ff0099cc"));
-                    error_details.setText("Creating account...");
+                    error_details.setText("Creating user_icon...");
                     Toast.makeText(SignUpActivity.this, "Please Wait", Toast.LENGTH_LONG).show();
 
                     String email = new_email.getText().toString();

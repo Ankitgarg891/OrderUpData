@@ -34,9 +34,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="14dp"
-            android:layout_marginLeft="26dp"
-            android:layout_marginRight="26dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="24dp"
             android:layout_weight="10"
             android:background="@drawable/button_cornor_white"
             android:backgroundTint="@android:color/white"
@@ -54,8 +54,7 @@
                 android:padding="5dp"
                 android:text="Fill your details below "
                 android:textColor="@android:color/holo_blue_dark"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -79,11 +78,10 @@
                         android:layout_marginTop="12dp"
                         android:layout_weight="3.5"
                         android:backgroundTint="@android:color/black"
-                        android:drawableLeft="@drawable/user"
-                        android:drawablePadding="20dp"
+                        android:drawableLeft="@drawable/user_icon"
+                        android:drawablePadding="10dp"
                         android:hint="Username"
                         android:inputType="textPersonName"
-                        android:paddingLeft="10dp"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
 
@@ -96,11 +94,10 @@
                         android:layout_marginTop="12dp"
                         android:layout_weight="3.5"
                         android:backgroundTint="@android:color/black"
-                        android:drawableLeft="@drawable/phone"
-                        android:drawablePadding="20dp"
+                        android:drawableLeft="@drawable/phone_icon"
+                        android:drawablePadding="10dp"
                         android:hint="Phone Number"
                         android:inputType="phone|textPhonetic"
-                        android:paddingLeft="10dp"
                         android:textColor="@android:color/black"
                         android:textColorHint="@color/grey"
                         android:textSize="20sp" />
@@ -114,11 +111,10 @@
                         android:layout_marginTop="12dp"
                         android:layout_weight="3.5"
                         android:backgroundTint="@android:color/black"
-                        android:drawableLeft="@drawable/mail"
+                        android:drawableLeft="@drawable/email_icon"
                         android:drawablePadding="20dp"
                         android:hint="Email"
                         android:inputType="textEmailAddress"
-                        android:paddingLeft="10dp"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
 
@@ -131,11 +127,10 @@
                         android:layout_marginTop="12dp"
                         android:layout_weight="3.5"
                         android:backgroundTint="@android:color/black"
-                        android:drawableLeft="@drawable/lock"
-                        android:drawablePadding="20dp"
+                        android:drawableLeft="@drawable/lock_icon"
+                        android:drawablePadding="10dp"
                         android:hint="Password"
                         android:inputType="textPassword"
-                        android:paddingLeft="10dp"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
 
@@ -148,11 +143,10 @@
                         android:layout_marginTop="12dp"
                         android:layout_weight="3.5"
                         android:backgroundTint="@android:color/black"
-                        android:drawableLeft="@drawable/lock"
-                        android:drawablePadding="20dp"
+                        android:drawableLeft="@drawable/lock_icon"
+                        android:drawablePadding="10dp"
                         android:hint="Re-enter Password"
                         android:inputType="textPassword"
-                        android:paddingLeft="10dp"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
 
@@ -164,8 +158,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="3.1"
                 android:background="@drawable/button_cornor_white"
