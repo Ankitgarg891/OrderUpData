@@ -117,4 +117,10 @@ public class WelcomeActivity extends AppCompatActivity {
             return view;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+        super.onBackPressed();
+    }
 }
