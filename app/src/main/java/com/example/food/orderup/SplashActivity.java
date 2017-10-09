@@ -13,6 +13,7 @@ public class
 SplashActivity extends AppCompatActivity {
 
     Handler handler;
+    Boolean check = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +24,17 @@ SplashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                finish();
+                if (check == false) {
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    finish();
+                }
             }
         }, 3000);
     }
 
     @Override
     public void onBackPressed() {
-        finish();
+        check=true;
         super.onBackPressed();
     }
 }
