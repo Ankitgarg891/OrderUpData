@@ -22,25 +22,13 @@ public class AppetizerFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-
+        ListView listView;
         String[] names = {"a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10"};
-        int images = R.mipmap.ic_launcher, total_size = names.length, i;
+        int images = R.mipmap.ic_launcher;
 
+        listView=(ListView)view.findViewById(R.id.menu_listview);
+        listView.setAdapter(new CustomAdapter(getContext(),images,names));
 
-
-        LinearLayout linearLayout = (LinearLayout)view.findViewById(R.id.newlayout);
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        for (i=0;i<total_size;i++) {
-            View view1  = inflater.inflate(R.layout.menu_custom_listview, linearLayout, false);
-
-            ImageView imageView = (ImageView)view1.findViewById(R.id.menu_ImageView);
-            TextView textView = (TextView)view1.findViewById(R.id.menu_nameTextView);
-
-            imageView.setImageResource(images);
-            textView.setText(names[i]);
-
-            linearLayout.addView(view1);
-        }
         super.onViewCreated(view, savedInstanceState);
     }
 }
