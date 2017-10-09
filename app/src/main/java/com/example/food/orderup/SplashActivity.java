@@ -34,7 +34,7 @@ SplashActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        check=true;
+        check = true;
         super.onBackPressed();
     }
 }
