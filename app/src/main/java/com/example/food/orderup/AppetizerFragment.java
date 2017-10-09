@@ -26,8 +26,8 @@ public class AppetizerFragment extends Fragment {
         String[] names = {"a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10"};
         int images = R.mipmap.ic_launcher;
 
-        listView=(ListView)view.findViewById(R.id.menu_listview);
-        listView.setAdapter(new CustomAdapter(getContext(),images,names));
+        listView = (ListView) view.findViewById(R.id.menu_listview);
+        listView.setAdapter(new CustomAdapter(getContext(), images, names));
 
         super.onViewCreated(view, savedInstanceState);
     }

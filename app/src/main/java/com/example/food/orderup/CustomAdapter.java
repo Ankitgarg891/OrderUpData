@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class CustomAdapter extends BaseAdapter{
+public class CustomAdapter extends BaseAdapter {
 
     int images;
     String[] names;
@@ -16,13 +16,14 @@ public class CustomAdapter extends BaseAdapter{
     Context context;
     LayoutInflater layoutInflater;
 
-    CustomAdapter(Context context,int image,String[] name){
-        this.context=context;
-        this.images=image;
-        this.names=name;
+    CustomAdapter(Context context, int image, String[] name) {
+        this.context = context;
+        this.images = image;
+        this.names = name;
 
-        layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+
     @Override
     public int getCount() {
         return names.length;
@@ -41,10 +42,10 @@ public class CustomAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        view = layoutInflater.inflate(R.layout.menu_custom_listview,viewGroup,false);
+        view = layoutInflater.inflate(R.layout.menu_custom_listview, viewGroup, false);
 
-        ImageView imageView = (ImageView)view.findViewById(R.id.menu_ImageView);
-        TextView textView = (TextView)view.findViewById(R.id.menu_nameTextView);
+        ImageView imageView = (ImageView) view.findViewById(R.id.menu_ImageView);
+        TextView textView = (TextView) view.findViewById(R.id.menu_nameTextView);
 
         imageView.setImageResource(images);
         textView.setText(names[i]);

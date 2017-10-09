@@ -25,8 +25,10 @@ public class WelcomeActivity extends AppCompatActivity {
     TextView display;
     FirebaseDatabase database;
     DatabaseReference myRef;
-    String flag, id, name[] = {"r1", "r2", "r3", "r4"}, address[] = {"a1", "a2", "a3", "a4"};
-    Integer images[] = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
+    String flag, id, name[] = {"Town Hall Restaurant", "The Big Chill Café", "Yellow Brick Road Restaurant", "Wok in the Clouds", "The Coffee Bean & Tea Leaf", "Azam’s Mughlai", "Café Turtle", "Omazoni"},
+            address[] = {"61 Khan Market, Rabindra Nagar, New Delhi", "36 Khan Market, New Delhi", "Taj Vivanta Hotel, Cornwallis Road, Sujan Singh Park, Khan Market, New Delhi", "52 Khan Market, New Delhi",
+                    "62 Middle Lane, Khan Market, Rabindra Nagar, New Delhi", "1B Khan Market, New Delhi", "23 Middle Lane, 2nd Floor, Khan Market, New Delhi", "Prithviraj Market, Khan Market, Delhi"};
+    Integer images = R.mipmap.ic_launcher;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -41,9 +43,9 @@ public class WelcomeActivity extends AppCompatActivity {
         outlet_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                switch (position){
+                switch (position) {
                     case 0:
-                        startActivity(new Intent(WelcomeActivity.this,MenuActivity.class));
+                        startActivity(new Intent(WelcomeActivity.this, MenuActivity.class));
                         break;
                 }
             }
@@ -108,7 +110,7 @@ public class WelcomeActivity extends AppCompatActivity {
             TextView outlet_name = (TextView) view.findViewById(R.id.outlet_nameTextView);
             TextView outlet_address = (TextView) view.findViewById(R.id.outlet_addressTextView);
 
-            outlet_image.setImageResource(images[i]);
+            outlet_image.setImageResource(images);
             outlet_name.setText(name[i]);
             outlet_address.setText(address[i]);
 
