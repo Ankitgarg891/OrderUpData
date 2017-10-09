@@ -107,6 +107,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnFocusCha
                                     Intent intent = new Intent(SignUpActivity.this, WelcomeActivity.class);
                                     intent.putExtra("id", id);
                                     startActivity(intent);
+                                    finish();
                                 }
                             }
                         }
