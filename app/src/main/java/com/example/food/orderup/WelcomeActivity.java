@@ -3,6 +3,7 @@ package com.example.food.orderup;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class WelcomeActivity extends AppCompatActivity {
 
     private static final String TAG = "Welcome_activity";
-    TextView display;
+    Toolbar toolbar;
     FirebaseDatabase database;
     DatabaseReference myRef;
     String flag, id, name[] = {"Town Hall Restaurant", "The Big Chill Café", "Yellow Brick Road Restaurant", "Wok in the Clouds", "The Coffee Bean & Tea Leaf", "Azam’s Mughlai", "Café Turtle", "Omazoni"},
@@ -34,6 +35,12 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setTitle("Welcome,");
 
         ListView outlet_listview = (ListView) findViewById(R.id.outletListView);
 
@@ -50,8 +57,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             }
         });
-        display = (TextView) findViewById(R.id.display);
-
 
         Intent intent = getIntent();
         flag = intent.getStringExtra("flag");
@@ -64,17 +69,13 @@ public class WelcomeActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String display_name = "";
-
+                // This method is called once with the initial value and again whenever data at this location is updated.
                 for (DataSnapshot d : dataSnapshot.getChildren()) {
-                    display.setText("Welcome, " + dataSnapshot.child("Name").getValue().toString());
-                    //   Toast.makeText(WelcomeActivity.this,dataSnapshot.child("Name").toString(), Toast.LENGTH_LONG).show();
+                    toolbar.setSubtitle(dataSnapshot.child("Name").getValue().toString());
+
                     Log.d("WelcomeActivity", "Name = " + d.child("Name"));
                     Log.d("WelcomeActivity", "Phone No = " + d.child("Phone no"));
                 }
-                Log.d(TAG, "Value is: " + display_name);
             }
 
             @Override
@@ -116,5 +117,11 @@ public class WelcomeActivity extends AppCompatActivity {
 
             return view;
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
