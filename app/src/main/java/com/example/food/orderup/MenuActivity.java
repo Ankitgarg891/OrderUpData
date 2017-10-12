@@ -35,10 +35,10 @@ public class MenuActivity extends AppCompatActivity {
 
     void setupPager(ViewPager viewPager) {
         PagerFunctionality pagerFunctionality = new PagerFunctionality(getSupportFragmentManager());
-        pagerFunctionality.addFragment(new AppetizerFragment(), "Appetizer");
-        pagerFunctionality.addFragment(new DessertFragment(), "Dessert's");
-        pagerFunctionality.addFragment(new Main_CourseFragment(), "Main Course");
-        pagerFunctionality.addFragment(new BeveragesFragment(), "Beverages");
+        pagerFunctionality.addFragment(new AppetizerFragment(), "    Appetizer    ");
+        pagerFunctionality.addFragment(new DessertFragment(), "    Dessert's    ");
+        pagerFunctionality.addFragment(new Main_CourseFragment(), "    Main Course    ");
+        pagerFunctionality.addFragment(new BeveragesFragment(), "    Beverages    ");
         viewPager.setAdapter(pagerFunctionality);
     }
 

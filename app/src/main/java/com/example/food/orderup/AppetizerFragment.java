@@ -1,11 +1,13 @@
 package com.example.food.orderup;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -21,14 +23,21 @@ public class AppetizerFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         ListView listView;
         String[] names = {"a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10"};
         int images = R.mipmap.ic_launcher;
+        Button order_now = (Button)view.findViewById(R.id.order_nowButton);
 
         listView = (ListView) view.findViewById(R.id.menu_listview);
         listView.setAdapter(new CustomAdapter(getContext(), images, names));
 
-        super.onViewCreated(view, savedInstanceState);
+        order_now.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(),FinalOrderActivity.class));
+            }
+        });
     }
 }
