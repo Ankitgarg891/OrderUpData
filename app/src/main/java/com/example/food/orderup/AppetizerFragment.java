@@ -26,17 +26,18 @@ public class AppetizerFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ListView listView;
-        String[] names = {"a1", "a2", "a3", "a4", "a5", "a6", "a7", "a8", "a9", "a10"};
-        int images = R.mipmap.ic_launcher;
-        Button order_now = (Button)view.findViewById(R.id.order_nowButton);
+        String[] names = {"Vegetarian Spring Rolls", "Vegetable Fried Wonton", "Crispy Chilli Potatoes", "Chilli Paneer", "Crispy Tangy Mushrooms", "Corn Pepper Salt"};
+        int images[] = {R.drawable.roll, R.drawable.wonton, R.drawable.chilli, R.drawable.paneer, R.drawable.mushroom, R.drawable.corn};
+        String price[] = {"225"," 225"," 245"," 275"," 245"," 260"};
+        Button order_now = (Button) view.findViewById(R.id.order_nowButton);
 
         listView = (ListView) view.findViewById(R.id.menu_listview);
-        listView.setAdapter(new CustomAdapter(getContext(), images, names));
+        listView.setAdapter(new CustomAdapter(getContext(), images, names, price));
 
         order_now.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(),FinalOrderActivity.class));
+                startActivity(new Intent(getContext(), FinalOrderActivity.class));
             }
         });
     }

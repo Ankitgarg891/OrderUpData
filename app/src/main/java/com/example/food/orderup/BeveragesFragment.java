@@ -19,11 +19,12 @@ public class BeveragesFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         ListView listView;
-        String[] names = {"b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "b10"};
-        int images = R.mipmap.ic_launcher;
+        String[] names = {"Vegetarian Spring Rolls", "Vegetable Fried Wonton", "Crispy Chilli Potatoes", "Chilli Paneer", "Crispy Tangy Mushrooms", "Corn Pepper Salt"};
+        int images[] = {R.drawable.roll, R.drawable.wonton, R.drawable.chilli, R.drawable.paneer, R.drawable.mushroom, R.drawable.corn};
+        String price[] = {"225"," 225"," 245"," 275"," 245"," 260"};
 
         listView = (ListView) view.findViewById(R.id.menu_listview);
-        listView.setAdapter(new CustomAdapter(getContext(), images, names));
+        listView.setAdapter(new CustomAdapter(getContext(), images, names, price));
 
         super.onViewCreated(view, savedInstanceState);
     }

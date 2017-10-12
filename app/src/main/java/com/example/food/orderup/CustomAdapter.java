@@ -10,16 +10,18 @@ import android.widget.TextView;
 
 public class CustomAdapter extends BaseAdapter {
 
-    int images;
+    int[] images;
+    String[] prices;
     String[] names;
 
     Context context;
     LayoutInflater layoutInflater;
 
-    CustomAdapter(Context context, int image, String[] name) {
+    CustomAdapter(Context context, int image[], String[] name, String[] price) {
         this.context = context;
         this.images = image;
         this.names = name;
+        this.prices = price;
 
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -44,11 +46,13 @@ public class CustomAdapter extends BaseAdapter {
 
         view = layoutInflater.inflate(R.layout.menu_custom_listview, viewGroup, false);
 
-        ImageView imageView = (ImageView) view.findViewById(R.id.menu_ImageView);
-        TextView textView = (TextView) view.findViewById(R.id.menu_nameTextView);
+        ImageView item_ImageView = (ImageView) view.findViewById(R.id.menu_ImageView);
+        TextView name_TextView = (TextView) view.findViewById(R.id.menu_nameTextView);
+        TextView price_Textview = (TextView) view.findViewById(R.id.menu_item_priceTextView);
 
-        imageView.setImageResource(images);
-        textView.setText(names[i]);
+        item_ImageView.setImageResource(images[i]);
+        name_TextView.setText(names[i]);
+        price_Textview.setText(prices[i]);
 
         return view;
     }
