@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Order Up</string>
     <string name="auth_failed"> Error! Plz try again!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
