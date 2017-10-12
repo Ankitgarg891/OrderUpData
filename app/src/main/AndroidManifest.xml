@@ -11,21 +11,35 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SignUpActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUpActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/WelcomeTheme" />
         <activity
             android:name=".WelcomeActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/WelcomeTheme" />
         <activity
             android:name=".MenuActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/MenuTheme" />
+        <activity
+            android:name=".FinalOrderActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/WelcomeTheme"></activity>
     </application>
 
 </manifest>

@@ -31,7 +31,7 @@
             android:layout_weight="3.5"
             android:background="@drawable/button_cornor_white"
             android:backgroundTint="@android:color/black"
-            android:drawableLeft="@drawable/tray"
+            android:drawableLeft="@drawable/tray_vector_white"
             android:drawableTint="@android:color/white"
             android:gravity="center"
             android:text="Order up"
@@ -73,7 +73,7 @@
                 android:hint="Email"
                 android:inputType="textEmailAddress|textAutoComplete"
                 android:textColor="@android:color/black"
-                android:textSize="21sp" />
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/password"
@@ -87,7 +87,7 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:textColor="@android:color/black"
-                android:textSize="21sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/login_button"
