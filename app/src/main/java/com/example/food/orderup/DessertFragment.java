@@ -24,7 +24,7 @@ public class DessertFragment extends Fragment {
         String price[] = {"225"," 225"," 245"," 275"," 245"," 260"};
 
         listView = (ListView) view.findViewById(R.id.menu_listview);
-        listView.setAdapter(new CustomAdapter(getContext(), images, names, price));
+        listView.setAdapter(new MenuCustomAdapter(getContext(), images, names, price));
 
         super.onViewCreated(view, savedInstanceState);
     }

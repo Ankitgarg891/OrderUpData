@@ -5,10 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class CustomAdapter extends BaseAdapter {
+public class MenuCustomAdapter extends BaseAdapter {
 
     int[] images;
     String[] prices;
@@ -17,7 +18,7 @@ public class CustomAdapter extends BaseAdapter {
     Context context;
     LayoutInflater layoutInflater;
 
-    CustomAdapter(Context context, int image[], String[] name, String[] price) {
+    MenuCustomAdapter(Context context, int image[], String[] name, String[] price) {
         this.context = context;
         this.images = image;
         this.names = name;
@@ -50,9 +51,27 @@ public class CustomAdapter extends BaseAdapter {
         TextView name_TextView = (TextView) view.findViewById(R.id.menu_nameTextView);
         TextView price_Textview = (TextView) view.findViewById(R.id.menu_item_priceTextView);
 
+        ImageButton add_quantity = (ImageButton) view.findViewById(R.id.add_quantityImageButton);
+        ImageButton delete_quantity = (ImageButton) view.findViewById(R.id.delete_quantityImageButton);
+
+        final TextView quantity_number = (TextView) view.findViewById(R.id.quantity_numberTextView);
+
         item_ImageView.setImageResource(images[i]);
         name_TextView.setText(names[i]);
         price_Textview.setText(prices[i]);
+
+        delete_quantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                quantity_number.setText("");
+            }
+        });
+        add_quantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                quantity_number.setText("");
+            }
+        });
 
         return view;
     }

@@ -5,27 +5,27 @@
     android:orientation="vertical">
 
     <ListView
-        android:layout_marginTop="5dp"
         android:id="@+id/menu_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/check_outButton"
+        android:layout_marginTop="5dp"
         android:divider="@null"
-        android:layout_above="@+id/order_nowButton"
         android:nestedScrollingEnabled="true"
         android:scrollbars="none" />
 
     <Button
-        android:id="@+id/order_nowButton"
+        android:id="@+id/check_outButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/button_cornor_white"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_corner_full"
         android:clickable="false"
-        android:text="Order Now"
+        android:text="Check Out"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold"
