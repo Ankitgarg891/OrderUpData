@@ -41,7 +41,8 @@
             android:name=".FinalOrderActivity"
             android:screenOrientation="portrait"
             android:theme="@style/WelcomeTheme" />
-        <activity android:name=".chef_login"></activity>
+        <activity android:name=".chef_login" />
+        <activity android:name=".order_list_chef"></activity>
     </application>
 
 </manifest>

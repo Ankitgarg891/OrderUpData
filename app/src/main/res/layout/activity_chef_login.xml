@@ -65,7 +65,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/r_id"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="5dp"
@@ -79,7 +79,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/r_password"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="5dp"
@@ -93,7 +93,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/login_button"
+            android:id="@+id/view_orders"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="20dp"
@@ -103,7 +103,8 @@
             android:layout_weight="1"
             android:background="@drawable/button_corner_10dp"
             android:gravity="center"
-            android:text=" LOG IN "
+            android:text=" View Orders "
+            android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
