@@ -15,6 +15,7 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -39,7 +40,9 @@
         <activity
             android:name=".FinalOrderActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/WelcomeTheme"></activity>
+            android:theme="@style/WelcomeTheme" />
+        <activity android:name=".chef_login" />
+        <activity android:name=".order_list_chef"></activity>
     </application>
 
 </manifest>
