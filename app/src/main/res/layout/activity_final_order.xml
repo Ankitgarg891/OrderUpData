@@ -39,7 +39,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text"
-        android:layout_margin="10dp">
+        android:layout_margin="10dp"
+        app:contentPaddingBottom="10dp"
+        app:contentPaddingTop="10dp">
 
         <ListView
             android:id="@+id/final_orderListView"
@@ -54,8 +56,8 @@
         android:id="@+id/order_nowButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:layout_below="@+id/list_cardview"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginTop="10dp"

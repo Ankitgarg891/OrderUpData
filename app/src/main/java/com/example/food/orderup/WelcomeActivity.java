@@ -26,10 +26,10 @@ public class WelcomeActivity extends AppCompatActivity {
     Toolbar toolbar;
     FirebaseDatabase database;
     DatabaseReference myRef;
-    String flag, id, name[] = {"Town Hall Restaurant", "The Big Chill Café", "Yellow Brick Road Restaurant", "Wok in the Clouds", "The Coffee Bean & Tea Leaf", "Azam’s Mughlai", "Café Turtle", "Omazoni"},
+    String flag, id, name[] = {"Town Hall Restaurant", "The Big Chill Café", "Yellow Brick Road Restaurant", "Wok in the Clouds", "The Coffee Bean & Tea Leaf", "Café Turtle", "Omazoni"},
             address[] = {"61 Khan Market, Rabindra Nagar, New Delhi", "36 Khan Market, New Delhi", "Taj Vivanta Hotel, Cornwallis Road, Sujan Singh Park, Khan Market, New Delhi", "52 Khan Market, New Delhi",
-                    "62 Middle Lane, Khan Market, Rabindra Nagar, New Delhi", "1B Khan Market, New Delhi", "23 Middle Lane, 2nd Floor, Khan Market, New Delhi", "Prithviraj Market, Khan Market, Delhi"};
-    Integer images = R.mipmap.ic_launcher;
+                    "62 Middle Lane, Khan Market, Rabindra Nagar, New Delhi", "23 Middle Lane, 2nd Floor, Khan Market, New Delhi", "Prithviraj Market, Khan Market, Delhi"};
+    Integer images[] = {R.drawable.town_hall, R.drawable.the_big_chill, R.drawable.yellow_brick, R.drawable.wok_in_the_clouds, R.drawable.the_coffee_bean, R.drawable.cafe_turtle, R.drawable.omazoni};
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -111,7 +111,7 @@ public class WelcomeActivity extends AppCompatActivity {
             TextView outlet_name = (TextView) view.findViewById(R.id.outlet_nameTextView);
             TextView outlet_address = (TextView) view.findViewById(R.id.outlet_addressTextView);
 
-            outlet_image.setImageResource(images);
+            outlet_image.setImageResource(images[i]);
             outlet_name.setText(name[i]);
             outlet_address.setText(address[i]);
 

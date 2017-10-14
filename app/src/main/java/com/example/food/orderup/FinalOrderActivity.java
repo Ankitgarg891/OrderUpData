@@ -10,7 +10,7 @@ public class FinalOrderActivity extends AppCompatActivity {
     Toolbar toolbar;
     String[] names = {"Vegetarian Spring Rolls", "Vegetable Fried Wonton", "Crispy Chilli Potatoes"};
     int images[] = {R.drawable.roll, R.drawable.wonton, R.drawable.chilli};
-    String price[] = {"225", " 225", " 245"};
+    String price[] = {"450", "450", "735"};
     String quantity[] = {"2", "2", "3"};
     ListView final_order;
 

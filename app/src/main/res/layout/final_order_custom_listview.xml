@@ -41,6 +41,7 @@
             android:id="@+id/final_order_quantityTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="quantity"
             android:textAlignment="center"
             android:textColor="@android:color/black"
@@ -50,25 +51,28 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:layout_weight="1"
-        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Price"
             android:textColor="@android:color/black"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/final_order_priceTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:text="240"
             android:textColor="@android:color/black"
-            android:textSize="15sp"
+            android:textSize="17sp"
             android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

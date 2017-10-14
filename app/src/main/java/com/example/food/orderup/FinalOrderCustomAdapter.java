@@ -52,8 +52,8 @@ public class FinalOrderCustomAdapter extends BaseAdapter {
 
         final_order_image.setImageResource(images[i]);
         final_order_name.setText(names[i]);
-        final_order_quantity.setText(quantities[i]);
-        final_order_price.setText(prices[i]);
+        final_order_quantity.setText("Quantity : " + quantities[i]);
+        final_order_price.setText("₹ " + prices[i]);
 
         return finalorderview;
     }

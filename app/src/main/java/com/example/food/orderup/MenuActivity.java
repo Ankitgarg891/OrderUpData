@@ -32,7 +32,7 @@ public class MenuActivity extends AppCompatActivity {
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(MenuActivity.this,FinalOrderActivity.class));
+                startActivity(new Intent(MenuActivity.this, FinalOrderActivity.class));
                 return true;
             }
         });
