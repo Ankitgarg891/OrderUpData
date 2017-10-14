@@ -43,36 +43,23 @@ public class MenuCustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View menuview, ViewGroup viewGroup) {
 
-        view = layoutInflater.inflate(R.layout.menu_custom_listview, viewGroup, false);
+        menuview = layoutInflater.inflate(R.layout.menu_custom_listview, viewGroup, false);
 
-        ImageView item_ImageView = (ImageView) view.findViewById(R.id.menu_ImageView);
-        TextView name_TextView = (TextView) view.findViewById(R.id.menu_nameTextView);
-        TextView price_Textview = (TextView) view.findViewById(R.id.menu_item_priceTextView);
+        ImageView item_ImageView = (ImageView) menuview.findViewById(R.id.menu_ImageView);
+        TextView name_TextView = (TextView) menuview.findViewById(R.id.menu_nameTextView);
+        TextView price_Textview = (TextView) menuview.findViewById(R.id.menu_item_priceTextView);
 
-        ImageButton add_quantity = (ImageButton) view.findViewById(R.id.add_quantityImageButton);
-        ImageButton delete_quantity = (ImageButton) view.findViewById(R.id.delete_quantityImageButton);
+        ImageButton add_quantity = (ImageButton) menuview.findViewById(R.id.add_quantityImageButton);
+        ImageButton delete_quantity = (ImageButton) menuview.findViewById(R.id.delete_quantityImageButton);
 
-        final TextView quantity_number = (TextView) view.findViewById(R.id.quantity_numberTextView);
+        final TextView quantity_number = (TextView) menuview.findViewById(R.id.quantity_numberTextView);
 
         item_ImageView.setImageResource(images[i]);
         name_TextView.setText(names[i]);
         price_Textview.setText(prices[i]);
 
-        delete_quantity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                quantity_number.setText("");
-            }
-        });
-        add_quantity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                quantity_number.setText("");
-            }
-        });
-
-        return view;
+        return menuview;
     }
 }

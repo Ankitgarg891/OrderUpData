@@ -3,10 +3,16 @@ package com.example.food.orderup;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.ListView;
 
 public class FinalOrderActivity extends AppCompatActivity {
 
     Toolbar toolbar;
+    String[] names = {"Vegetarian Spring Rolls", "Vegetable Fried Wonton", "Crispy Chilli Potatoes"};
+    int images[] = {R.drawable.roll, R.drawable.wonton, R.drawable.chilli};
+    String price[] = {"225", " 225", " 245"};
+    String quantity[] = {"2", "2", "3"};
+    ListView final_order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +24,9 @@ public class FinalOrderActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getSupportActionBar().setTitle("OrderUp");
+
+        final_order = (ListView) findViewById(R.id.final_orderListView);
+        final_order.setAdapter(new FinalOrderCustomAdapter(FinalOrderActivity.this, images, names, quantity, price));
     }
 
     @Override
