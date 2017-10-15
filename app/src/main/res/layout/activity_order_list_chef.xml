@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="#237472"
+                android:id="@+id/res_name"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="22sp"
