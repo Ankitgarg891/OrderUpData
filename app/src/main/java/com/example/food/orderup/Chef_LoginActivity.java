@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class Chef_LoginActivity extends AppCompatActivity {
+
     Button view_orders;
 
     @Override
@@ -16,11 +17,10 @@ public class Chef_LoginActivity extends AppCompatActivity {
 
         view_orders = (Button) findViewById(R.id.view_orders);
 
-
         view_orders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Chef_LoginActivity.this,order_list_chef.class);
+                Intent intent = new Intent(Chef_LoginActivity.this, OrderListChefActivity.class);
                 startActivity(intent);
             }
         });
