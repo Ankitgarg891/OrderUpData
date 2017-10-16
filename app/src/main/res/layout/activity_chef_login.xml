@@ -40,7 +40,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/status"
+            android:id="@+id/status_chef"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
@@ -103,7 +103,7 @@
 
 
         <EditText
-            android:id="@+id/r_password"
+            android:id="@+id/password_chef"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="20dp"
