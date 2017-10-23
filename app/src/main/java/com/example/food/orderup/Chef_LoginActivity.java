@@ -31,6 +31,8 @@ public class Chef_LoginActivity extends AppCompatActivity {
     Spinner s1;
     ArrayAdapter a1;
 
+    String place;
+
 
     String res;
     String pass_user;
@@ -51,6 +53,8 @@ public class Chef_LoginActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         mAuth = FirebaseAuth.getInstance();
+
+        myRef = database.getReference("Chef");
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -81,8 +85,7 @@ public class Chef_LoginActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 res=res_name[i];
-
-                myRef = database.getReference("Chef").child(no[i]);
+                place=no[i];
 
             }
 
@@ -90,7 +93,8 @@ public class Chef_LoginActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
                 res=res_name[0];
 
-                myRef = database.getReference("Chef").child(no[0]);
+                place=no[0];
+
 
             }
         });
@@ -116,7 +120,10 @@ public class Chef_LoginActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // This method is called once with the initial value and again whenever data at this location is updated.
 
-                        pass_real=dataSnapshot.getValue().toString();
+                        for (DataSnapshot d : dataSnapshot.getChildren()) {
+                            pass_real=dataSnapshot.child(place).getValue().toString();
+
+}
 
 
 
