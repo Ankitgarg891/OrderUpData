@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MenuCustomAdapter extends BaseAdapter {
+public class MenuCustomAdapter extends BaseAdapter implements View.OnClickListener {
 
     int[] images;
     String[] prices;
@@ -60,6 +60,18 @@ public class MenuCustomAdapter extends BaseAdapter {
         name_TextView.setText(names[i]);
         price_Textview.setText(prices[i]);
 
+        add_quantity.setOnClickListener(this);
+        delete_quantity.setOnClickListener(this);
         return menuview;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.add_quantityImageButton:
+                break;
+            case R.id.delete_quantityImageButton:
+                break;
+        }
     }
 }

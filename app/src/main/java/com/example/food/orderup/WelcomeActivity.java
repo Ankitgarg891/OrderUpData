@@ -50,11 +50,10 @@ public class WelcomeActivity extends AppCompatActivity {
         outlet_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        startActivity(new Intent(WelcomeActivity.this, MenuActivity.class));
-                        break;
-                }
+                String rest_name = name[position];
+                Intent intent = new Intent(WelcomeActivity.this, MenuActivity.class);
+                intent.putExtra("Res_name",rest_name);
+                startActivity(intent);
             }
         });
 
