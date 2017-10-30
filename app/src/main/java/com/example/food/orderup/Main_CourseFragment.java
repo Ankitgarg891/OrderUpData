@@ -21,7 +21,7 @@ public class Main_CourseFragment extends Fragment {
         ListView listView;
         String[] names = {"Cheela", "Paneer Sauted Chilli", "Chilli Sauted Spehgati", "Pav Bhaji", "Dal Shorba", "Soya Soft Covered Chap"};
         int images[] = {R.drawable.cheela, R.drawable.chilipaneer, R.drawable.noodles, R.drawable.pav, R.drawable.shorba, R.drawable.soya};
-        String price[] = {"225"," 225"," 245"," 275"," 245"," 260"};
+        String price[] = {"180","150","210","200","220"," 260"};
 
         listView = (ListView) view.findViewById(R.id.menu_listview);
         listView.setAdapter(new MenuCustomAdapter(getContext(), images, names, price));
