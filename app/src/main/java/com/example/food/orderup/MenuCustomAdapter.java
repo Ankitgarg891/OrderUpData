@@ -9,7 +9,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MenuCustomAdapter extends BaseAdapter implements View.OnClickListener {
+import java.util.ArrayList;
+
+public class MenuCustomAdapter extends BaseAdapter {
 
     int[] images;
     String[] prices;
@@ -45,6 +47,8 @@ public class MenuCustomAdapter extends BaseAdapter implements View.OnClickListen
     @Override
     public View getView(int i, View menuview, ViewGroup viewGroup) {
 
+        int orderlist[];
+
         menuview = layoutInflater.inflate(R.layout.menu_custom_listview, viewGroup, false);
 
         ImageView item_ImageView = (ImageView) menuview.findViewById(R.id.menu_ImageView);
@@ -60,18 +64,18 @@ public class MenuCustomAdapter extends BaseAdapter implements View.OnClickListen
         name_TextView.setText(names[i]);
         price_Textview.setText(prices[i]);
 
-        add_quantity.setOnClickListener(this);
-        delete_quantity.setOnClickListener(this);
+        add_quantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                quantity_number.setText("1");
+            }
+        });
+        delete_quantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                quantity_number.setText("9");
+            }
+        });
         return menuview;
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.add_quantityImageButton:
-                break;
-            case R.id.delete_quantityImageButton:
-                break;
-        }
     }
 }
