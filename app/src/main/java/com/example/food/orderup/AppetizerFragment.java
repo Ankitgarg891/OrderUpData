@@ -36,7 +36,10 @@ public class AppetizerFragment extends Fragment {
         check_out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), FinalOrderActivity.class));
+                Intent intent = new Intent(getContext(), FinalOrderActivity.class);
+                intent.putExtra("order_item_name",MenuCustomAdapter.order_list);
+                intent.putExtra("order_item_quantity",MenuCustomAdapter.order_quantity);
+                startActivity(intent);
             }
         });
     }

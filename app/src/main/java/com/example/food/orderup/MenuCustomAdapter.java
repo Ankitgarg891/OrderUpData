@@ -22,6 +22,9 @@ public class MenuCustomAdapter extends BaseAdapter {
     Context context;
     LayoutInflater layoutInflater;
 
+    static ArrayList order_list = new ArrayList();
+    static ArrayList order_quantity = new ArrayList();
+
     MenuCustomAdapter(Context context, int image[], String[] name, String[] price, int[] quantity) {
         this.context = context;
         this.images = image;
@@ -77,15 +80,19 @@ public class MenuCustomAdapter extends BaseAdapter {
         delete_quantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (quantity[i]>0) {
+                if (quantity[i] > 0) {
                     quantity[i]--;
                     quantity_number.setText("" + quantity[i]);
-                }
-                else {
+                } else {
                     Toast.makeText(context, "Please select a correct quantity", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+        if (quantity[i] > 0) {
+            order_list.add(names[i]);
+            order_quantity.add(quantity[i]);
+        }
 
         return menuview;
     }
