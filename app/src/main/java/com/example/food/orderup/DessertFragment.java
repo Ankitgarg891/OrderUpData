@@ -22,9 +22,10 @@ public class DessertFragment extends Fragment {
         String[] names = {"Chocolate Sandwich", "Ferrero Cake", "Ice Cream Cake", "Chocolate Truffle", "Waffle"};
         int images[] = {R.drawable.choco, R.drawable.ferrer, R.drawable.ice, R.drawable.truffle, R.drawable.waffle};
         String price[] = {"150"," 180"," 200"," 275"," 245"," 260"};
+        int quantity[] = {0,0,0,0,0,0};
 
         listView = (ListView) view.findViewById(R.id.menu_listview);
-        listView.setAdapter(new MenuCustomAdapter(getContext(), images, names, price));
+        listView.setAdapter(new MenuCustomAdapter(getContext(), images, names, price,quantity));
 
         super.onViewCreated(view, savedInstanceState);
     }

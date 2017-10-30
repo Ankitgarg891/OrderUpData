@@ -22,9 +22,9 @@ public class BeveragesFragment extends Fragment {
         String[] names = {"Soft Drinks  ", "Mohito", "Oreo Shake", "Kitkat Shake", "Ferrero Rocher"};
         int images[] = {R.drawable.soft, R.drawable.mohito, R.drawable.oreo, R.drawable.kitkat, R.drawable.ferrero};
         String price[] = {"50","120","150","150","150","250"};
-
+        int quantity[] = {0,0,0,0,0,0};
         listView = (ListView) view.findViewById(R.id.menu_listview);
-        listView.setAdapter(new MenuCustomAdapter(getContext(), images, names, price));
+        listView.setAdapter(new MenuCustomAdapter(getContext(), images, names, price,quantity));
 
         super.onViewCreated(view, savedInstanceState);
     }

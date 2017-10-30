@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -16,15 +17,17 @@ public class MenuCustomAdapter extends BaseAdapter {
     int[] images;
     String[] prices;
     String[] names;
+    int[] quantity;
 
     Context context;
     LayoutInflater layoutInflater;
 
-    MenuCustomAdapter(Context context, int image[], String[] name, String[] price) {
+    MenuCustomAdapter(Context context, int image[], String[] name, String[] price, int[] quantity) {
         this.context = context;
         this.images = image;
         this.names = name;
         this.prices = price;
+        this.quantity = quantity;
 
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -45,9 +48,7 @@ public class MenuCustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View menuview, ViewGroup viewGroup) {
-
-        int orderlist[];
+    public View getView(final int i, View menuview, ViewGroup viewGroup) {
 
         menuview = layoutInflater.inflate(R.layout.menu_custom_listview, viewGroup, false);
 
@@ -64,18 +65,28 @@ public class MenuCustomAdapter extends BaseAdapter {
         name_TextView.setText(names[i]);
         price_Textview.setText(prices[i]);
 
+        quantity_number.setText("" + quantity[i]);
+
         add_quantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                quantity_number.setText("1");
+                quantity[i]++;
+                quantity_number.setText("" + quantity[i]);
             }
         });
         delete_quantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                quantity_number.setText("9");
+                if (quantity[i]>0) {
+                    quantity[i]--;
+                    quantity_number.setText("" + quantity[i]);
+                }
+                else {
+                    Toast.makeText(context, "Please select a correct quantity", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
         return menuview;
     }
 }
