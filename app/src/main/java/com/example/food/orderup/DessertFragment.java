@@ -19,8 +19,8 @@ public class DessertFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         ListView listView;
-        String[] names = {"Vegetarian Spring Rolls", "Vegetable Fried Wonton", "Crispy Chilli Potatoes", "Chilli Paneer", "Crispy Tangy Mushrooms", "Corn Pepper Salt"};
-        int images[] = {R.drawable.roll, R.drawable.wonton, R.drawable.chilli, R.drawable.paneer, R.drawable.mushroom, R.drawable.corn};
+        String[] names = {"Chocolate Sandwich", "Ferrero Cake", "Ice Cream Cake", "Chocolate Truffle", "Waffle"};
+        int images[] = {R.drawable.choco, R.drawable.ferrer, R.drawable.ice, R.drawable.truffle, R.drawable.waffle};
         String price[] = {"225"," 225"," 245"," 275"," 245"," 260"};
 
         listView = (ListView) view.findViewById(R.id.menu_listview);
