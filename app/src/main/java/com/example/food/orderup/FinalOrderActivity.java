@@ -24,7 +24,6 @@ public class FinalOrderActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         order = (HashMap<String, Integer>) intent.getSerializableExtra("order");
-        Log.e("order received",order.toString());
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

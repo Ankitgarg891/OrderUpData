@@ -56,7 +56,6 @@ public class MenuCustomAdapter extends ArrayAdapter {
 
                 Intent intent = new Intent(context, FinalOrderActivity.class);
                 Log.e("order", order.toString());
-                Toast.makeText(context, "attacehed", Toast.LENGTH_LONG).show();
 
                 intent.putExtra("order", order);
                 context.startActivity(intent);

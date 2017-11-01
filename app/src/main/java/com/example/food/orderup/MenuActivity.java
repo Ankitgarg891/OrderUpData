@@ -34,13 +34,6 @@ public class MenuActivity extends AppCompatActivity {
         Intent intent = getIntent();
         res_name = intent.getStringExtra("Res_name");
 
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                startActivity(new Intent(MenuActivity.this, FinalOrderActivity.class));
-                return true;
-            }
-        });
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         tabLayout = (TabLayout) findViewById(R.id.tablayout);
 
@@ -91,13 +84,6 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
-        return true;
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_activity_cart_option, menu);
         return true;
     }
 }
