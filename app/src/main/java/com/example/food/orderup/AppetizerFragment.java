@@ -1,6 +1,5 @@
 package com.example.food.orderup;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -31,16 +30,7 @@ public class AppetizerFragment extends Fragment {
         Button check_out = (Button) view.findViewById(R.id.check_outButton);
 
         listView = (ListView) view.findViewById(R.id.menu_listview);
-        listView.setAdapter(new MenuCustomAdapter(getContext(), images, names, price,quantity));
+        listView.setAdapter(new MenuCustomAdapter(getContext(), images, names, price,quantity,check_out));
 
-        check_out.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), FinalOrderActivity.class);
-                intent.putExtra("order_item_name",MenuCustomAdapter.order_list);
-                intent.putExtra("order_item_quantity",MenuCustomAdapter.order_quantity);
-                startActivity(intent);
-            }
-        });
     }
 }

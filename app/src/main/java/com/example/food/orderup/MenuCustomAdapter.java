@@ -1,18 +1,24 @@
 package com.example.food.orderup;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-public class MenuCustomAdapter extends BaseAdapter {
+public class MenuCustomAdapter extends ArrayAdapter {
 
     int[] images;
     String[] prices;
@@ -22,32 +28,45 @@ public class MenuCustomAdapter extends BaseAdapter {
     Context context;
     LayoutInflater layoutInflater;
 
-    static ArrayList order_list = new ArrayList();
-    static ArrayList order_quantity = new ArrayList();
+    ArrayList order_list = new ArrayList();
+    ArrayList order_quantity = new ArrayList();
 
-    MenuCustomAdapter(Context context, int image[], String[] name, String[] price, int[] quantity) {
+    static HashMap<String, Integer> order = new HashMap<>();
+
+    Button submit;
+
+    MenuCustomAdapter(Context context, int image[], String[] name, String[] price, int[] quantity, Button submit) {
+        super(context, R.layout.menu_custom_listview);
         this.context = context;
         this.images = image;
         this.names = name;
         this.prices = price;
         this.quantity = quantity;
-
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.submit = submit;
+
+        setuplistenerforsubmit();
+    }
+
+    private void setuplistenerforsubmit() {
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(context, FinalOrderActivity.class);
+                Log.e("order", order.toString());
+                Toast.makeText(context, "attacehed", Toast.LENGTH_LONG).show();
+
+                intent.putExtra("order", order);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
     public int getCount() {
         return names.length;
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return names[i];
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return i;
     }
 
     @Override
@@ -68,13 +87,22 @@ public class MenuCustomAdapter extends BaseAdapter {
         name_TextView.setText(names[i]);
         price_Textview.setText(prices[i]);
 
+        if (order.containsKey(names[i])) {
+
+            quantity[i] = order.get(names[i]);
+        }
         quantity_number.setText("" + quantity[i]);
+
 
         add_quantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 quantity[i]++;
                 quantity_number.setText("" + quantity[i]);
+
+                order.put(names[i], quantity[i]);
+                Log.e("changed", order_list.toString() + " " + order_quantity.toString());
+
             }
         });
         delete_quantity.setOnClickListener(new View.OnClickListener() {
@@ -83,17 +111,21 @@ public class MenuCustomAdapter extends BaseAdapter {
                 if (quantity[i] > 0) {
                     quantity[i]--;
                     quantity_number.setText("" + quantity[i]);
+
+
+                    order.put(names[i], quantity[i]);
+
+                    if (quantity[i] == 0) {
+
+                        order.remove(names[i]);
+                    }
+
+
                 } else {
                     Toast.makeText(context, "Please select a correct quantity", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-        if (quantity[i] > 0) {
-            order_list.add(names[i]);
-            order_quantity.add(quantity[i]);
-        }
-
         return menuview;
     }
 }
