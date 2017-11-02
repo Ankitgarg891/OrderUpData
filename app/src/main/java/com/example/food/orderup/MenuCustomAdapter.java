@@ -31,7 +31,7 @@ public class MenuCustomAdapter extends ArrayAdapter {
     ArrayList order_list = new ArrayList();
     ArrayList order_quantity = new ArrayList();
 
-    static HashMap<String, Integer> order = new HashMap<>();
+    static HashMap<String, item_model_class> order = new HashMap<>();
 
     Button submit;
 
@@ -88,7 +88,7 @@ public class MenuCustomAdapter extends ArrayAdapter {
 
         if (order.containsKey(names[i])) {
 
-            quantity[i] = order.get(names[i]);
+            quantity[i] = order.get(names[i]).getQuantity();
         }
         quantity_number.setText("" + quantity[i]);
 
@@ -99,7 +99,19 @@ public class MenuCustomAdapter extends ArrayAdapter {
                 quantity[i]++;
                 quantity_number.setText("" + quantity[i]);
 
-                order.put(names[i], quantity[i]);
+                item_model_class item ;
+                if(order.containsKey(names[i])){
+
+                    item = order.get(names[i]);
+
+                }
+                else{
+
+                    item = new item_model_class(names[i],prices[i],images[i]);
+                }
+
+                item.setQuantity(quantity[i]);
+                order.put(names[i],item);
                 Log.e("changed", order_list.toString() + " " + order_quantity.toString());
 
             }
@@ -111,8 +123,19 @@ public class MenuCustomAdapter extends ArrayAdapter {
                     quantity[i]--;
                     quantity_number.setText("" + quantity[i]);
 
+                    item_model_class item ;
+                    if(order.containsKey(names[i])){
 
-                    order.put(names[i], quantity[i]);
+                        item = order.get(names[i]);
+
+                    }
+                    else{
+
+                        item = new item_model_class(names[i],prices[i],images[i]);
+                    }
+
+                    item.setQuantity(quantity[i]);
+                    order.put(names[i], item);
 
                     if (quantity[i] == 0) {
 
