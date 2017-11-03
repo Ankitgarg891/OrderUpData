@@ -110,6 +110,7 @@
             android:drawableTint="@android:color/black"
             android:drawablePadding="10dp"
             android:hint="Password"
+            android:text="THR05"
             android:textColorHint="@color/black_trans"
             android:inputType="textPassword"
             android:textColor="@android:color/black"

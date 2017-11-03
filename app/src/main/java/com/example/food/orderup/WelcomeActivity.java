@@ -22,6 +22,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class WelcomeActivity extends AppCompatActivity {
 
+
+    public static String userName;
+    public static String userPhone;
+    public static String userEmail;
+
     private static final String TAG = "Welcome_activity";
     Toolbar toolbar;
     FirebaseDatabase database;
@@ -70,10 +75,9 @@ public class WelcomeActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again whenever data at this location is updated.
                 for (DataSnapshot d : dataSnapshot.getChildren()) {
+                    userName = dataSnapshot.child("Name").getValue().toString();
+                    userPhone = dataSnapshot.child("Phone no").getValue().toString();
                     toolbar.setSubtitle(dataSnapshot.child("Name").getValue().toString());
-
-                    Log.d("WelcomeActivity", "Name = " + d.child("Name"));
-                    Log.d("WelcomeActivity", "Phone No = " + d.child("Phone no"));
                 }
             }
 
@@ -122,5 +126,11 @@ public class WelcomeActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MenuCustomAdapter.order.clear();
     }
 }

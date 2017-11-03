@@ -44,6 +44,9 @@ public class Chef_LoginActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     DatabaseReference myRef;
 
+    public static String chef_id;
+    public static String hotel_name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +65,7 @@ public class Chef_LoginActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
+                    chef_id=user.getUid();
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
                     // User is signed out
@@ -86,24 +90,18 @@ public class Chef_LoginActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 res=res_name[i];
                 place=no[i];
-
+                hotel_name = res;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
                 res=res_name[0];
-
+                hotel_name = res;
                 place=no[0];
 
 
             }
         });
-
-
-
-
-
-
 
 
         view_orders = (Button) findViewById(R.id.view_orders);
@@ -139,16 +137,6 @@ public class Chef_LoginActivity extends AppCompatActivity {
                 });
 
              //   pass_real
-
-
-
-
-
-
-
-
-
-
 
 
                 Intent intent = new Intent(Chef_LoginActivity.this, OrderListChefActivity.class);

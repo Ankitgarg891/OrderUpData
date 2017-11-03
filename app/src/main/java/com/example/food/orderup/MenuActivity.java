@@ -22,6 +22,8 @@ public class MenuActivity extends AppCompatActivity {
     TabLayout tabLayout;
     String res_name;
 
+    public static String hotel_name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,7 @@ public class MenuActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         res_name = intent.getStringExtra("Res_name");
+        hotel_name = res_name;
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         tabLayout = (TabLayout) findViewById(R.id.tablayout);

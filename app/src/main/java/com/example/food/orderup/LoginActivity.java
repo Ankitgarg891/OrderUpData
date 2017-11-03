@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText email, password;
     Button login;
 
+    public static String userId;
     FirebaseDatabase database;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -49,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //All attachments here
         database = FirebaseDatabase.getInstance();
+//        database.setPersistenceEnabled(true);
         mAuth = FirebaseAuth.getInstance();
         myRef = database.getReference("User-details");
 
@@ -89,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                                     } else {
                                         FirebaseUser user = mAuth.getCurrentUser();
                                         String id = user.getUid();
+                                        userId = id;
 
                                         Toast.makeText(LoginActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
 

@@ -20,6 +20,8 @@ public class FinalOrderActivity extends AppCompatActivity {
     Button submit;
     ListView final_order;
 
+    public static String order_string = "order";
+
     HashMap<String,item_model_class> order = new HashMap<>();
 
     @Override
@@ -52,9 +54,13 @@ public class FinalOrderActivity extends AppCompatActivity {
                 FirebaseDatabase db = FirebaseDatabase.getInstance();
                 DatabaseReference ref = db.getReference();
 
-                //
-                //ref.push().setValue(order);
-            }
+
+                ref.child(order_string).child(MenuActivity.hotel_name).child(LoginActivity.userId).setValue(order);
+                ref.child(order_string).child(MenuActivity.hotel_name).child(LoginActivity.userId).child("User").setValue(WelcomeActivity.userName);
+                ref.child(order_string).child(MenuActivity.hotel_name).child(LoginActivity.userId).child("Phone").setValue(WelcomeActivity.userPhone);
+
+                MenuCustomAdapter.order.clear();
+                }
         });
     }
 

@@ -107,7 +107,7 @@ public class MenuCustomAdapter extends ArrayAdapter {
                 }
                 else{
 
-                    item = new item_model_class(names[i],prices[i],images[i]);
+                    item = new item_model_class(names[i],prices[i],images[i],WelcomeActivity.userName,WelcomeActivity.userPhone);
                 }
 
                 item.setQuantity(quantity[i]);
@@ -131,7 +131,7 @@ public class MenuCustomAdapter extends ArrayAdapter {
                     }
                     else{
 
-                        item = new item_model_class(names[i],prices[i],images[i]);
+                        item = new item_model_class(names[i],prices[i],images[i],WelcomeActivity.userName,WelcomeActivity.userPhone);
                     }
 
                     item.setQuantity(quantity[i]);
