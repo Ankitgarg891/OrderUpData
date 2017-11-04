@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -22,7 +21,7 @@ public class FinalOrderActivity extends AppCompatActivity {
 
     public static String order_string = "order";
 
-    HashMap<String,item_model_class> order = new HashMap<>();
+    HashMap<String, item_model_class> order = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +39,11 @@ public class FinalOrderActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("OrderUp");
 
         final_order = (ListView) findViewById(R.id.final_orderListView);
-        final_order.setAdapter(new FinalOrderCustomAdapter(FinalOrderActivity.this,order));
+        final_order.setAdapter(new FinalOrderCustomAdapter(FinalOrderActivity.this, order));
 
         submit = (Button) findViewById(R.id.order_nowButton);
 
-        if(order.isEmpty() || order.size()==0){
+        if (order.isEmpty() || order.size() == 0) {
             submit.setClickable(false);
         }
 
@@ -54,13 +53,12 @@ public class FinalOrderActivity extends AppCompatActivity {
                 FirebaseDatabase db = FirebaseDatabase.getInstance();
                 DatabaseReference ref = db.getReference();
 
+                final_order_model final_order = new final_order_model(order, WelcomeActivity.userName, WelcomeActivity.userPhone);
 
-                ref.child(order_string).child(MenuActivity.hotel_name).child(LoginActivity.userId).setValue(order);
-                ref.child(order_string).child(MenuActivity.hotel_name).child(LoginActivity.userId).child("User").setValue(WelcomeActivity.userName);
-                ref.child(order_string).child(MenuActivity.hotel_name).child(LoginActivity.userId).child("Phone").setValue(WelcomeActivity.userPhone);
-
+                ref.child(order_string).child(MenuActivity.hotel_name).child(LoginActivity.userId).setValue(final_order);
                 MenuCustomAdapter.order.clear();
-                }
+                finish();
+            }
         });
     }
 

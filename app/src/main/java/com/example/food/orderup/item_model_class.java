@@ -2,10 +2,6 @@ package com.example.food.orderup;
 
 import java.io.Serializable;
 
-/**
- * Created by Dipanshu on 02-11-2017.
- */
-
 class item_model_class implements Serializable {
 
     private String name;
@@ -13,17 +9,14 @@ class item_model_class implements Serializable {
     private int image;
     private int quantity;
 
-    private String UserName;
-    private String PhoneNo;
+    public item_model_class() {
+    }
 
-    public item_model_class(String name,String price,int image,String userName,String phoneNo)
-    {
+    public item_model_class(String name, String price, int image) {
 
         this.name = name;
         this.price = price;
         this.image = image;
-        this.UserName = userName;
-        this.PhoneNo = phoneNo;
     }
 
 
@@ -60,21 +53,4 @@ class item_model_class implements Serializable {
         this.quantity = quantity;
     }
 
-    public String getUserName() {
-        return UserName;
-    }
-
-    public void setUserName(String userName) {
-        UserName = userName;
-    }
-
-    public String getPhoneNo() {
-        return PhoneNo;
-    }
-
-    public void setPhoneNo(String phoneNo) {
-        PhoneNo = phoneNo;
-    }
 }
-
-

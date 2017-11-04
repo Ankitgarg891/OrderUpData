@@ -42,11 +42,15 @@
             android:screenOrientation="portrait"
             android:theme="@style/WelcomeTheme" />
         <activity
-            android:name=".Chef_LoginActivity"
+            android:name=".ChefLoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/WelcomeTheme" />
         <activity
             android:name=".OrderListChefActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/WelcomeTheme" />
+        <activity
+            android:name=".ChefOrderDetailsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/WelcomeTheme" />
     </application>

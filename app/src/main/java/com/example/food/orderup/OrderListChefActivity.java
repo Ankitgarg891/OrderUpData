@@ -1,9 +1,14 @@
 package com.example.food.orderup;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,7 +23,10 @@ public class OrderListChefActivity extends AppCompatActivity {
     Toolbar toolbar;
     ProgressDialog dialog;
 
-    HashMap<String,item_model_class> fullOrder;
+    HashMap<String, final_order_model> fullOrder;
+
+    ArrayList<String> key = new ArrayList<>();
+    ListView list;
 
 
     @Override
@@ -26,14 +34,34 @@ public class OrderListChefActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_list_chef);
 
+        list = findViewById(R.id.chef_ordersListView);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-//        getSupportActionBar().setTitle("Orders");
+        getSupportActionBar().setTitle("Orders List");
 
         fetchData();
+        setuplistClickListener();
 
+    }
+
+    private void setuplistClickListener() {
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                String k = key.get(i);
+                final_order_model order = fullOrder.get(k);
+
+                Intent intent = new Intent(OrderListChefActivity.this, ChefOrderDetailsActivity.class);
+                intent.putExtra("order", order);
+                startActivity(intent);
+                Log.e("order is ", order.toString());
+            }
+        });
     }
 
     private void fetchData() {
@@ -45,17 +73,18 @@ public class OrderListChefActivity extends AppCompatActivity {
 
 
         FirebaseDatabase db = FirebaseDatabase.getInstance();
-        db.getReference().child("order").addValueEventListener(new ValueEventListener() {
+        db.getReference().child("order").child(ChefLoginActivity.hotel_name).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-              for(DataSnapshot s : dataSnapshot.getChildren()){
+                fullOrder = new HashMap<>();
+                for (DataSnapshot s : dataSnapshot.getChildren()) {
 
-                  fullOrder.put(s.getKey(), (item_model_class) s.getValue());
+                    fullOrder.put(s.getKey(), s.getValue(final_order_model.class));
 
-              }
-
-              plotRecord();
+                }
+                dialog.dismiss();
+                parseRecord();
             }
 
             @Override
@@ -66,9 +95,12 @@ public class OrderListChefActivity extends AppCompatActivity {
 
     }
 
-    private void plotRecord() {
+    private void parseRecord() {
 
+        key = new ArrayList<>(fullOrder.keySet());
 
+        chef_name_list_adapter adapter = new chef_name_list_adapter(this, key, fullOrder);
+        list.setAdapter(adapter);
     }
 
 

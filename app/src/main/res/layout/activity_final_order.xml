@@ -59,10 +59,10 @@
                     android:id="@+id/final_orderListView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_above="@+id/order_nowButton"
+                    android:layout_alignParentTop="true"
                     android:divider="@null"
                     android:dividerHeight="3dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_above="@+id/order_nowButton"
                     android:nestedScrollingEnabled="true"
                     android:scrollbars="none" />
 

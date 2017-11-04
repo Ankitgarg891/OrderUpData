@@ -9,10 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
 import java.util.ArrayList;
 
@@ -49,7 +45,7 @@ public class MenuActivity extends AppCompatActivity {
         PagerFunctionality pagerFunctionality = new PagerFunctionality(getSupportFragmentManager());
         pagerFunctionality.addFragment(new AppetizerFragment(), "Appetizer");
         pagerFunctionality.addFragment(new DessertFragment(), "Dessert's");
-        pagerFunctionality.addFragment(new Main_CourseFragment(), "Main Course");
+        pagerFunctionality.addFragment(new MainCourseFragment(), "Main Course");
         pagerFunctionality.addFragment(new BeveragesFragment(), "Beverages");
         viewPager.setAdapter(pagerFunctionality);
     }

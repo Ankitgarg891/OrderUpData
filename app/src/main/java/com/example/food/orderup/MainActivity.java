@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, Chef_LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, ChefLoginActivity.class);
 
                 startActivity(intent);
 

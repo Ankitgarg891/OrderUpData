@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Chef_LoginActivity extends AppCompatActivity {
+public class ChefLoginActivity extends AppCompatActivity {
 
     Button view_orders;
     private static final String TAG = "chef_LoginActivity";
@@ -31,14 +31,9 @@ public class Chef_LoginActivity extends AppCompatActivity {
     Spinner s1;
     ArrayAdapter a1;
 
-    String place;
-
-
-    String res;
-    String pass_user;
-    String pass_real;
-    String res_name[]={"Town Hall Restaurant", "The Big Chill Café", "Yellow Brick Road Restaurant", "Wok in the Clouds", "The Coffee Bean & Tea Leaf", "Café Turtle", "Omazoni"};
-    String no[]={"0","1","2","3","4","5","6"};
+    String place, res, pass_user, pass_real;
+    String res_name[] = {"Town Hall Restaurant", "The Big Chill Café", "Yellow Brick Road Restaurant", "Wok in the Clouds", "The Coffee Bean & Tea Leaf", "Café Turtle", "Omazoni"};
+    String no[] = {"0", "1", "2", "3", "4", "5", "6"};
     FirebaseDatabase database;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -53,7 +48,6 @@ public class Chef_LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chef_login);
 
 
-
         database = FirebaseDatabase.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
@@ -65,7 +59,7 @@ public class Chef_LoginActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    chef_id=user.getUid();
+                    chef_id = user.getUid();
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
                     // User is signed out
@@ -75,31 +69,28 @@ public class Chef_LoginActivity extends AppCompatActivity {
         };
 
 
+        final TextView status_c = (TextView) findViewById(R.id.status_chef);
+        password_chef = (EditText) findViewById(R.id.password_chef);
 
-        final TextView status_c=(TextView)findViewById(R.id.status_chef);
-        password_chef=(EditText)findViewById(R.id.password_chef);
+        s1 = (Spinner) findViewById(R.id.spinner);
 
-        s1=(Spinner)findViewById(R.id.spinner);
-
-        a1=new ArrayAdapter(this,R.layout.spinner_layout,res_name);
+        a1 = new ArrayAdapter(this, R.layout.spinner_layout, res_name);
 
         s1.setAdapter(a1);
 
         s1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                res=res_name[i];
-                place=no[i];
+                res = res_name[i];
+                place = no[i];
                 hotel_name = res;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                res=res_name[0];
+                res = res_name[0];
                 hotel_name = res;
-                place=no[0];
-
-
+                place = no[0];
             }
         });
 
@@ -109,9 +100,9 @@ public class Chef_LoginActivity extends AppCompatActivity {
         view_orders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Chef_LoginActivity.this, "Please Wait", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChefLoginActivity.this, "Please Wait", Toast.LENGTH_SHORT).show();
                 status_c.setText("Checking Details..");
-                pass_user=password_chef.getText().toString();
+                pass_user = password_chef.getText().toString();
 
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -119,13 +110,9 @@ public class Chef_LoginActivity extends AppCompatActivity {
                         // This method is called once with the initial value and again whenever data at this location is updated.
 
                         for (DataSnapshot d : dataSnapshot.getChildren()) {
-                            pass_real=dataSnapshot.child(place).getValue().toString();
+                            pass_real = dataSnapshot.child(place).getValue().toString();
 
-}
-
-
-
-
+                        }
 
                     }
 
@@ -136,12 +123,12 @@ public class Chef_LoginActivity extends AppCompatActivity {
                     }
                 });
 
-             //   pass_real
+                //   pass_real
 
-
-                Intent intent = new Intent(Chef_LoginActivity.this, OrderListChefActivity.class);
-                intent.putExtra("res",pass_user+"yu"+pass_real);
+                Intent intent = new Intent(ChefLoginActivity.this, OrderListChefActivity.class);
+                intent.putExtra("res", pass_user + "yu" + pass_real);
                 startActivity(intent);
+                finish();
             }
         });
 

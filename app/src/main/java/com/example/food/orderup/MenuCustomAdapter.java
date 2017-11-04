@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -16,7 +15,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class MenuCustomAdapter extends ArrayAdapter {
 
@@ -99,19 +97,18 @@ public class MenuCustomAdapter extends ArrayAdapter {
                 quantity[i]++;
                 quantity_number.setText("" + quantity[i]);
 
-                item_model_class item ;
-                if(order.containsKey(names[i])){
+                item_model_class item;
+                if (order.containsKey(names[i])) {
 
                     item = order.get(names[i]);
 
-                }
-                else{
+                } else {
 
-                    item = new item_model_class(names[i],prices[i],images[i],WelcomeActivity.userName,WelcomeActivity.userPhone);
+                    item = new item_model_class(names[i], prices[i], images[i]);
                 }
 
                 item.setQuantity(quantity[i]);
-                order.put(names[i],item);
+                order.put(names[i], item);
                 Log.e("changed", order_list.toString() + " " + order_quantity.toString());
 
             }
@@ -123,15 +120,14 @@ public class MenuCustomAdapter extends ArrayAdapter {
                     quantity[i]--;
                     quantity_number.setText("" + quantity[i]);
 
-                    item_model_class item ;
-                    if(order.containsKey(names[i])){
+                    item_model_class item;
+                    if (order.containsKey(names[i])) {
 
                         item = order.get(names[i]);
 
-                    }
-                    else{
+                    } else {
 
-                        item = new item_model_class(names[i],prices[i],images[i],WelcomeActivity.userName,WelcomeActivity.userPhone);
+                        item = new item_model_class(names[i], prices[i], images[i]);
                     }
 
                     item.setQuantity(quantity[i]);

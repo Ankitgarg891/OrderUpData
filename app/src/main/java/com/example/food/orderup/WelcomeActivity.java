@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +24,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
     public static String userName;
     public static String userPhone;
-    public static String userEmail;
 
     private static final String TAG = "Welcome_activity";
     Toolbar toolbar;
@@ -57,7 +55,7 @@ public class WelcomeActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String rest_name = name[position];
                 Intent intent = new Intent(WelcomeActivity.this, MenuActivity.class);
-                intent.putExtra("Res_name",rest_name);
+                intent.putExtra("Res_name", rest_name);
                 startActivity(intent);
             }
         });

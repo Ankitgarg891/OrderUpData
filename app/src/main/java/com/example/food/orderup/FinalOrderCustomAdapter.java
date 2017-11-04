@@ -5,11 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,12 +17,12 @@ public class FinalOrderCustomAdapter extends ArrayAdapter {
     Context context;
 
     LayoutInflater layoutInflater;
-    HashMap<String,item_model_class> order;
+    HashMap<String, item_model_class> order;
     ArrayList<String> itemName;
 
-    FinalOrderCustomAdapter(Context context, HashMap<String,item_model_class> order) {
+    FinalOrderCustomAdapter(Context context, HashMap<String, item_model_class> order) {
 
-        super(context,R.layout.final_order_custom_listview);
+        super(context, R.layout.final_order_custom_listview);
         this.order = order;
         this.context = context;
         itemName = new ArrayList<>();
@@ -40,7 +37,7 @@ public class FinalOrderCustomAdapter extends ArrayAdapter {
 
     @Override
     public int getCount() {
-       return order.size();
+        return order.size();
     }
 
     @Override
@@ -58,14 +55,14 @@ public class FinalOrderCustomAdapter extends ArrayAdapter {
         ImageView imageView = finalorderview.findViewById(R.id.image);
 
         int intquan = item.getQuantity();
-        float floatprice  = Float.parseFloat(item.getPrice());
-        float totalPrce = intquan*floatprice;
+        float floatprice = Float.parseFloat(item.getPrice());
+        float totalPrce = intquan * floatprice;
 
 
         final_order_name.setText("" + item.getName());
-        final_order_quantity.setText("Quantity : " +item.getQuantity());
-        price.setText(item.getPrice()+"/per unit");
-        total.setText("Total Price : ₹"+totalPrce+"");
+        final_order_quantity.setText("Quantity : " + item.getQuantity());
+        price.setText(item.getPrice() + "/per unit");
+        total.setText("Total Price : ₹" + totalPrce + "");
         imageView.setImageDrawable(context.getDrawable(item.getImage()));
         return finalorderview;
     }
