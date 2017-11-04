@@ -23,11 +23,11 @@ public class OrderListChefActivity extends AppCompatActivity {
     Toolbar toolbar;
     ProgressDialog dialog;
 
-    HashMap<String, final_order_model> fullOrder;
+    public static HashMap<String, final_order_model> fullOrder = new HashMap<>();
 
     ArrayList<String> key = new ArrayList<>();
     ListView list;
-
+    String hotelName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,13 @@ public class OrderListChefActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+//        fetchData();
+    }
+
     private void setuplistClickListener() {
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -58,6 +65,7 @@ public class OrderListChefActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(OrderListChefActivity.this, ChefOrderDetailsActivity.class);
                 intent.putExtra("order", order);
+                intent.putExtra("key",k);
                 startActivity(intent);
                 Log.e("order is ", order.toString());
             }
@@ -78,10 +86,12 @@ public class OrderListChefActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 fullOrder = new HashMap<>();
+                Log.e("receiving","yes"+dataSnapshot.toString());
                 for (DataSnapshot s : dataSnapshot.getChildren()) {
 
                     fullOrder.put(s.getKey(), s.getValue(final_order_model.class));
 
+                    Log.e("data",fullOrder.toString());
                 }
                 dialog.dismiss();
                 parseRecord();
@@ -97,6 +107,7 @@ public class OrderListChefActivity extends AppCompatActivity {
 
     private void parseRecord() {
 
+        if(fullOrder == null)return;
         key = new ArrayList<>(fullOrder.keySet());
 
         chef_name_list_adapter adapter = new chef_name_list_adapter(this, key, fullOrder);
