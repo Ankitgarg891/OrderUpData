@@ -2,10 +2,8 @@ package com.example.food.orderup;
 
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +22,7 @@ public class chef_name_list_adapter extends ArrayAdapter {
     Context context;
 
     public chef_name_list_adapter(@NonNull Context context, ArrayList<String> key, HashMap<String,final_order_model> fullorder) {
-        super(context, R.layout.chef_order_name_list);
+        super(context, R.layout.chef_orders_name_custom_listview);
 
         this.context = context;
         this.key = key;
@@ -41,7 +39,7 @@ public class chef_name_list_adapter extends ArrayAdapter {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        View view = inflater.inflate(R.layout.chef_order_name_list,parent,false);
+        View view = inflater.inflate(R.layout.chef_orders_name_custom_listview,parent,false);
 
 
         TextView name = view.findViewById(R.id.name);
