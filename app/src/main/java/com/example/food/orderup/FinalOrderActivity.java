@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -57,6 +58,7 @@ public class FinalOrderActivity extends AppCompatActivity {
 
                 ref.child(order_string).child(MenuActivity.hotel_name).child(LoginActivity.userId).setValue(final_order);
                 MenuCustomAdapter.order.clear();
+                Toast.makeText(FinalOrderActivity.this, "Your order has been placed.", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

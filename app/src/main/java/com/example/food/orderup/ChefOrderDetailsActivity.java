@@ -67,7 +67,7 @@ public class ChefOrderDetailsActivity extends AppCompatActivity {
 
 
                 reference.child("order").child(ChefLoginActivity.hotel_name).setValue(OrderListChefActivity.fullOrder);
-                Toast.makeText(ChefOrderDetailsActivity.this,"Order Completed",Toast.LENGTH_LONG).show();
+                Toast.makeText(ChefOrderDetailsActivity.this,"Order is Completed",Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

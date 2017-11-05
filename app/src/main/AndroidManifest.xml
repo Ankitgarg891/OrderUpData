@@ -21,10 +21,12 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".LoginActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".SignUpActivity"
             android:screenOrientation="portrait"
@@ -44,7 +46,7 @@
         <activity
             android:name=".ChefLoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/WelcomeTheme" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".OrderListChefActivity"
             android:screenOrientation="portrait"

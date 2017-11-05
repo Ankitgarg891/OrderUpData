@@ -52,11 +52,15 @@ public class MenuCustomAdapter extends ArrayAdapter {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(context, FinalOrderActivity.class);
-                Log.e("order", order.toString());
+                if (order.size() == 0) {
+                    Toast.makeText(context, "Please select any item to proceed", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(context, FinalOrderActivity.class);
+                    Log.e("order", order.toString());
 
-                intent.putExtra("order", order);
-                context.startActivity(intent);
+                    intent.putExtra("order", order);
+                    context.startActivity(intent);
+                }
             }
         });
     }
