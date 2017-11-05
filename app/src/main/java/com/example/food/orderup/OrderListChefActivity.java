@@ -32,7 +32,7 @@ public class OrderListChefActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_list_chef);
+        setContentView(R.layout.activity_customer_name_list);
 
         list = findViewById(R.id.chef_ordersListView);
 
