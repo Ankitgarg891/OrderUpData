@@ -22,7 +22,7 @@
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleGravity="center_horizontal|bottom"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:title="Menu Activity">
+            app:title="Menu">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -46,19 +46,21 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/good_afternoon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Good Afternoon, Dipanshu"
                     android:textColor="@android:color/white"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/itstimefor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="It's time for lunch."
                     android:textColor="@android:color/white"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <android.support.v7.widget.Toolbar

@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:background="@drawable/splash_image"
+    android:fitsSystemWindows="true"
     tools:context="com.example.food.orderup.ChefLoginActivity">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/scrim_gradient"/>
+        android:background="@drawable/scrim_gradient" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,10 +27,10 @@
             android:id="@+id/i1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="6"
             android:background="@drawable/button_corner_10dp"
             android:backgroundTint="@android:color/black"
@@ -45,23 +46,27 @@
             android:id="@+id/status_chef"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_margin="10dp"
             android:layout_weight="3"
             android:gravity="center"
             android:text="Select Restaurant"
             android:textColor="@android:color/white"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+
+            android:textSize="25dp" />
 
         <LinearLayout
             android:id="@+id/r1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:layout_weight="3.7"
+            android:layout_weight="3.5"
+
+
             android:background="@drawable/button_corner_10dp"
+            android:backgroundTint="@android:color/transparent"
             android:orientation="horizontal"
             android:weightSum="8">
 
@@ -69,12 +74,14 @@
                 android:id="@+id/spinner"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_margin="0dp"
                 android:layout_weight="8"
-                android:backgroundTint="@android:color/white"
+                android:backgroundTint="@android:color/black"
+
+
                 android:dropDownSelector="@color/primary_dark"
                 android:padding="0dp"
-                android:spinnerMode="dropdown"/>
+                android:spinnerMode="dropdown" />
 
         </LinearLayout>
 
@@ -83,17 +90,16 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="20dp"
-            android:layout_weight="4"
-            android:backgroundTint="@color/primary_dark"
+            android:layout_weight="3.8"
+            android:backgroundTint="@android:color/white"
             android:drawableLeft="@drawable/lock_icon"
             android:drawablePadding="15dp"
             android:drawableTint="@android:color/white"
             android:hint="Password"
             android:inputType="textPassword"
-            android:text="THR05"
             android:textColor="@android:color/white"
             android:textColorHint="@color/white_trans"
-            android:textSize="30sp" />
+            android:textSize="25dp" />
 
         <Button
             android:id="@+id/view_orders"
@@ -103,14 +109,13 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="20dp"
-            android:layout_weight="4"
+            android:layout_weight="3.5"
             android:background="@drawable/button_corner_10dp"
             android:gravity="center"
             android:text=" View Orders "
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textSize="25dp" />
 
     </LinearLayout>
 
