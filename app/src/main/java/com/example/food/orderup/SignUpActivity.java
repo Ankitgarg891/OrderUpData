@@ -159,6 +159,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnFocusCha
 
             error_details.setText("Please enter same password");
             return false;
+
         } else {
             return true;
         }
