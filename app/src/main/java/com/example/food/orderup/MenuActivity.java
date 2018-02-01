@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -16,9 +17,12 @@ public class MenuActivity extends AppCompatActivity {
 
     ViewPager viewPager;
     TabLayout tabLayout;
+    TextView greet;
+
     String res_name;
 
     public static String hotel_name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,8 @@ public class MenuActivity extends AppCompatActivity {
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         tabLayout = (TabLayout) findViewById(R.id.tablayout);
+        greet= (TextView)findViewById(R.id.good_afternoon);
+        greet.setText("Good Afternoon "+WelcomeActivity.userName);
 
         setupPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);

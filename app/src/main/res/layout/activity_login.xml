@@ -72,7 +72,7 @@
                 android:drawablePadding="10dp"
                 android:hint="Email"
                 android:inputType="textEmailAddress|textAutoComplete"
-                android:text="dipanshu@gmail.com"
+
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
 
@@ -87,7 +87,7 @@
                 android:drawablePadding="10dp"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:text="123456789"
+
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
 

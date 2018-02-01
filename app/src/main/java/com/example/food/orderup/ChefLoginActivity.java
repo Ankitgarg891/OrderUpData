@@ -34,6 +34,7 @@ public class ChefLoginActivity extends AppCompatActivity {
     String place, res, pass_user, pass_real;
     String res_name[] = {"Town Hall Restaurant", "The Big Chill Café", "Yellow Brick Road Restaurant", "Wok in the Clouds", "The Coffee Bean & Tea Leaf", "Café Turtle", "Omazoni"};
     String no[] = {"0", "1", "2", "3", "4", "5", "6"};
+    String passwords[]={"THR05","TBCC05","YBRR05","WITC05","TCBTL05","CATU05","OMA05"};
     FirebaseDatabase database;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -84,6 +85,7 @@ public class ChefLoginActivity extends AppCompatActivity {
                 res = res_name[i];
                 place = no[i];
                 hotel_name = res;
+                pass_real=passwords[i];
             }
 
             @Override
@@ -91,6 +93,8 @@ public class ChefLoginActivity extends AppCompatActivity {
                 res = res_name[0];
                 hotel_name = res;
                 place = no[0];
+
+                pass_real=passwords[0];
             }
         });
 
@@ -110,7 +114,7 @@ public class ChefLoginActivity extends AppCompatActivity {
                         // This method is called once with the initial value and again whenever data at this location is updated.
 
                         for (DataSnapshot d : dataSnapshot.getChildren()) {
-                            pass_real = dataSnapshot.child(place).getValue().toString();
+                            //pass_real = dataSnapshot.child(place).getValue().toString();
 
                         }
 
@@ -126,9 +130,29 @@ public class ChefLoginActivity extends AppCompatActivity {
                 //   pass_real
 
                 Intent intent = new Intent(ChefLoginActivity.this, OrderListChefActivity.class);
-                intent.putExtra("res", pass_user + "yu" + pass_real);
-                startActivity(intent);
-                finish();
+
+
+                //intent.putExtra("res", pass_user + "yu" + pass_real);
+
+                //Toast.makeText(ChefLoginActivity.this, pass_real+"="+pass_user, Toast.LENGTH_SHORT).show();
+
+                if (pass_real.equals(pass_user))
+                {
+
+                    startActivity(intent);
+                    finish();
+
+
+
+                }
+                else
+                {
+                    status_c.setText("Please enter correct password");
+                    Toast.makeText(ChefLoginActivity.this, "Wrong Password", Toast.LENGTH_SHORT).show();
+
+                }
+
+
             }
         });
 

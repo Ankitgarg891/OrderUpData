@@ -51,7 +51,7 @@ public class ChefOrderDetailCustomAdapter extends ArrayAdapter {
 
         float int_price = Float.parseFloat(item.getPrice());
         name.setText(item.getName());
-        quantity.setText("Quantity : " + item.getQuantity() + "");
+        quantity.setText(item.getQuantity() + "");
 
         return view;
     }

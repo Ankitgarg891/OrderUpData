@@ -25,6 +25,7 @@ public class WelcomeActivity extends AppCompatActivity {
     public static String userName;
     public static String userPhone;
 
+
     private static final String TAG = "Welcome_activity";
     Toolbar toolbar;
     FirebaseDatabase database;
@@ -43,7 +44,7 @@ public class WelcomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        getSupportActionBar().setTitle("Welcome,");
+        getSupportActionBar().setTitle("Welcome");
 
         ListView outlet_listview = (ListView) findViewById(R.id.outletListView);
 

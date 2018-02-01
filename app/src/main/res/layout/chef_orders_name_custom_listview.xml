@@ -10,25 +10,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="5dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/button_corner_10dp"
+        android:backgroundTint="@android:color/white"
+        android:alpha=".9"
+
+        >
 
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="User Name"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textColor="@android:color/holo_blue_light"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:paddingTop="15dp"
+            android:paddingLeft="10dp"/>
 
         <TextView
             android:id="@+id/phoneno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="Phone NO"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:text="Phone no"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="20dp"
+            android:padding="15dp"/>
     </LinearLayout>
 
 </LinearLayout>

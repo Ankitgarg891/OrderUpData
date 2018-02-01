@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.food.orderup.OrderListChefActivity">
+    tools:context="com.example.food.orderup.OrderListChefActivity"
+    android:background="@drawable/splash_image">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -27,6 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@null"
-        android:padding="10dp"
-        android:scrollbars="none" />
+        android:padding="20dp"
+        android:scrollbars="none"
+        />
 </LinearLayout>

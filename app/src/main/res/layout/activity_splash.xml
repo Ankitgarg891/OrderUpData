@@ -38,7 +38,7 @@
             android:id="@+id/splashtray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/order"
+            android:layout_above="@+id/order"
             android:layout_centerInParent="true"
             android:background="@drawable/tray_vector_white"
             android:backgroundTint="@android:color/white" />
